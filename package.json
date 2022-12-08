@@ -1,16 +1,14 @@
 {
-  "name": "js-grundkurs-projektuppgift",
+  "name": "fed22d-js-grundkurs-projektmall-vanilla",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "nothing-works-and-i-hate-my-life": "tsc --noEmit && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
     "eslint": "^8.0.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -25,7 +23,6 @@
     "stylelint-config-standard": "^29.0.0",
     "stylelint-config-standard-scss": "^6.1.0",
     "stylelint-scss": "^4.3.0",
-    "typescript": "*",
     "vite": "^3.2.3"
   }
 }

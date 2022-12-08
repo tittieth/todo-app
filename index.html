@@ -1,152 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/ico" href="/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/6e63925041.js" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TODO-APP</title>
-  </head>
-  <body>
-    <main>
-      <section class="greeting">
-        <h1 class="title">
-          Hi there, <input type="text" id="name" placeholder="Name here">!
-        </h1>
-      </section>
+<!-- TODO: glöm ej att byta språk här -->
 
-      <section class="create-todo">
-        <h2>Create a todo</h2>
-        <form id="new-todo-form">
-          <input 
-            type="text" 
-            name="content" 
-            id="content" 
-            placeholder="e.g. Get milk">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/ico" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projekt</title>
+</head>
 
-          <div class="due-date">
-            <p id="due-date">Due date:</p>
-            <input type="date" id="due-date--input">
-          </div>
+<body>
+  <main>
+    <div class="app" id="app"></div> <!-- TODO: går bra att radera -->
+    <!-- TODO: skriv din kod här, innan script-taggen -->
+  </main>
 
-          <h3>Pick a cetegory</h3>
-          <div class="options">
-            <label>
-              <input 
-                type="radio" 
-                name="categori" 
-                id="category1" 
-                value="personal">
-              <span class="bubble personal"></span>
-              <div><i class="fa-solid fa-user"></i></div>
-              <div>Personal</div>
-            </label>
-
-            <label>
-              <input 
-                type="radio" 
-                name="categori" 
-                id="category2" 
-                value="kids">
-              <span class="bubble kids"></span>
-              <div><i class="fa-solid fa-children"></i></div>
-              <div>Kids</div>
-            </label>
-
-            <label>
-              <input 
-                type="radio" 
-                name="categori" 
-                id="category3" 
-                value="Job">
-              <span class="bubble job"></span>
-              <div><i class="fa-solid fa-laptop-code"></i></div>
-              <div>Job</div>
-            </label>
-
-            <label>
-              <input 
-                type="radio" 
-                name="categori" 
-                id="category4" 
-                value="other">
-              <span class="bubble other"></span>
-              <div><i class="fa-solid fa-heart"></i></div>
-              <div>Other</div>
-            </label>
-          </div>
-
-          <input type="submit" value="Add Todo">
-        </form>
-      </section>
-
-      <!--För att kunna se hur det kommmer se ut. Kommer att tas bort sen.-->
-
-      <section class="todo-list">
-        <h2>Todo list</h2>
-        <div class="list" id="todo-list">
-          <div class="todo-item">
-            <label>
-              <input type="checkbox">
-              <span class="bubble personal"></span>
-            </label>
-
-            <div class="todo-content">
-              <input type="text" value="Dinner with friends" readonly>
-            </div>
-
-            <div><i class="fa-solid fa-user"></i></div>
-
-            <div class="actions">
-              <button class="edit">Edit</button>
-              <button class="delete">Delete</button>
-            </div>
-
-            <div class="todo-item">
-              <label>
-                <input type="checkbox">
-                <span class="bubble kids"></span>
-              </label>
-  
-              <div class="todo-content">
-                <input type="text" value="Pick up Levi from football" readonly>
-              </div>
-
-              <div><i class="fa-solid fa-children"></i></div>
-  
-              <div class="actions">
-                <button class="edit">Edit</button>
-                <button class="delete">Delete</button>
-              </div>
-          </div>
-        </div>
-      </section>
-
-      <!--Kommer att tas bort hit-->
-
-      <footer>
-        <div class="list-status">
-          <p class="left-corner"><span id="items-left">0</span> items left</p>
-          <div class="filter">
-            <button id="all" class="on">All</button>
-            <button id="active">Active</button>
-            <button id="completed">Completed</button>
-          </div>
-          <div class="right-corner">
-            <button id="clear-completed">Clear Completed</button>
-          </div>
-      </footer>
-
-    </main>
-
-    <!-- TODO
+  <!-- TODO
     - Validera HTML (kopiera den renderade HTML-koden): https://validator.w3.org/#validate_by_input
     - Kontrollera tillgänglighet: https://www.a11yproject.com/checklist/ & Chrome Lighthouse/Firefox Accessibility Tools
     - Validera genererade CSS: https://jigsaw.w3.org/css-validator/#validate_by_input
     -->
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>

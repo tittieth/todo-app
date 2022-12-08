@@ -1,6 +1,5 @@
 import './style/style.scss';
 
-/*
 // All kod härifrån och ner är bara ett exempel för att komma igång
 
 // I denna utils-fil har vi lagrat funktioner som ofta används, t.ex. en "blanda array"-funktion
@@ -12,15 +11,16 @@ import exampleCardDeck from './exampleArray';
 // Blanda kortleken
 const myShuffledCardDeck = shuffle(exampleCardDeck);
 
+console.log(import.meta.env.VITE_MAPS_API_KEY);
+
+
 /**
  * Vänder upp/ner på det klickade kortet genom att toggla en CSS-klass.
- * @param this - Det HTML-element som har klickats på
+ * @param e - Det HTML-element som har klickats på
  * @return {void}
  */
-
-/*
-function flipCard(this: HTMLElement): void {
-  if (this !== undefined) {
+function flipCard(e) {
+  if (e.currentTarget !== undefined) {
     this.classList.toggle('visible');
   }
 }
@@ -35,10 +35,8 @@ myShuffledCardDeck.forEach((card) => {
     </button>`;
 });
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = cardString;
+document.querySelector('#app').innerHTML = cardString;
 
 document.querySelectorAll('.card').forEach((card) => {
   card.addEventListener('click', flipCard);
 });
-
-*/
