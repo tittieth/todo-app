@@ -69,7 +69,7 @@ function DisplayTodos() {
     const span = document.createElement('span');
     const content = document.createElement('div');
     const dueDate = document.createElement('div');
-    const category = document.createElement('span');
+    const category = document.createElement('div');
     const actions = document.createElement('div');
     const edit = document.createElement('button');
     const deleteButton = document.createElement('button');
@@ -79,16 +79,17 @@ function DisplayTodos() {
     span.classList.add('bubble');
 
     if (todo.category == 'personal') {
-      span.classList.add('personal');
+      category.innerHTML = '<i class="fa-solid fa-user"></i>';
     }
-    if (todo.classList == 'kids') {
-      span.classList.add('kids');
+    if (todo.category == 'kids') {
+      category.innerHTML = '<i class="fa-solid fa-children"></i>';
     }
-    if (todo.classList == 'job') {
-      span.classList.add('job');
-    } else {
-      span.classList.add('other');
-    }
+    if (todo.category == 'job') {
+      category.innerHTML = '<i class="fa-solid fa-laptop-code">';
+    } 
+    if (todo.category == 'other') {
+      category.innerHTML = '<i class="fa-solid fa-heart"></i>';
+    };
 
     content.classList.add('todo-content');
     dueDate.classList.add('dueDate-div');
@@ -110,6 +111,7 @@ function DisplayTodos() {
     todoItem.appendChild(content);
     todoItem.appendChild(actions);
     todoItem.appendChild(dueDate);
+    todoItem.appendChild(category);
 
     todoList.appendChild(todoItem);
 
