@@ -16,12 +16,12 @@ import './style/style.scss';
 
 // Har utgått från en video av Tyler Potts och ändrat och lagt till lite saker.
 
-let newTodos = JSON.parse(localStorage.getItem('newTodos')) || [];
+let todos = JSON.parse(localStorage.getItem('todos')) || [];
 let activeTodos = JSON.parse(localStorage.getItem('activeTodos')) || [];
 let completedTodos = JSON.parse(localStorage.getItem('completedTodos')) || [];
 const newTodoForm = document.querySelector('#new-todo-form');
-  const nameInput = document.querySelector('#name');
-  const username = localStorage.getItem('username') || '';
+const nameInput = document.querySelector('#name');
+const username = localStorage.getItem('username') || '';
 
 window.addEventListener('load', () => {
   // För att spara användarens namn
@@ -32,7 +32,9 @@ window.addEventListener('load', () => {
   })
 
   // Tar användarens inputs och lägger in det i listan todos 
-  newTodoForm.addEventListener('submit', (e) => {
+  newTodoForm.addEventListener('submit', addNewTodo);
+
+  function addNewTodo(e) {
     e.preventDefault();
 
     const todo = {
@@ -43,14 +45,14 @@ window.addEventListener('load', () => {
       createdAt: new Date().getTime()
     }
 
-    newTodos.push(todo);
+    todos.push(todo);
 
-    localStorage.setItem('newTodos', JSON.stringify(newTodos));
+    localStorage.setItem('todos', JSON.stringify(todos));
 
     e.target.reset();
 
     DisplayTodos();
-  });
+  }
   DisplayTodos();
 })
 
@@ -60,7 +62,7 @@ function DisplayTodos() {
 
   todoList.innerHTML = '';
 
-  newTodos.forEach(todo => {
+  todos.forEach(todo => {
     const todoItem = document.createElement('div');
     todoItem.classList.add('todo-item')
 
@@ -121,17 +123,29 @@ function DisplayTodos() {
 
     input.addEventListener('click', (e) => {
       todo.done = e.target.checked;
-      localStorage.setItem('newTodos', JSON.stringify(newTodos));
+      localStorage.setItem('todos', JSON.stringify(todos));
 
       if (todo.done) {
         todoItem.classList.add('done');
       } else {
         todoItem.classList.remove('done');
-      };
-
+      }
+      
       DisplayTodos();
+    })
+
+    edit.addEventListener('click', e => {
+      const input = content.querySelector('input');
+      input.removeAttribute('readonly');
+      input.focus();
+      input.addEventListener('blur', e => {
+        input.setAttribute('readonly', true);
+        todo.content = e.target.value;
+        localStorage.setItem('todos', JSON.stringify(todos));
+        DisplayTodos();
+      })
     })
   })
 }
 
-console.table(newTodos)
+console.table(todos);
