@@ -3,8 +3,8 @@ import './style/style.scss';
 /*
 [X] Användaren ska kunna skriva in sitt namn som sparas i localstorage
 [X] Ska kunna lägga till todos och välja kategori och datum
-[] Ska kunna ta bort todos 
-[] Ska kunna redigera todos 
+[X] Ska kunna ta bort todos 
+[X] Ska kunna redigera todos 
 [] Ska kunna markera en todo som klar och då läggs den till i en lista med klara 
 [] Ska kunna välja att visa alla todos, bara de som är klara eller bara de som är aktiva
 [] Ska kunna sorteras efter slutdatum 
@@ -134,7 +134,9 @@ function DisplayTodos() {
       DisplayTodos();
     })
 
-    edit.addEventListener('click', e => {
+    edit.addEventListener('click', editTodo); 
+
+    function editTodo (e) {
       const input = content.querySelector('input');
       input.removeAttribute('readonly');
       input.focus();
@@ -144,7 +146,15 @@ function DisplayTodos() {
         localStorage.setItem('todos', JSON.stringify(todos));
         DisplayTodos();
       })
-    })
+    }
+
+    deleteButton.addEventListener('click', deleteTodo);
+
+    function deleteTodo (e) {
+      todos = todos.filter(t => t != todo);
+      localStorage.setItem('todos', JSON.stringify(todos));
+      DisplayTodos();
+    }
   })
 }
 
