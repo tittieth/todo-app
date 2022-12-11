@@ -1,3 +1,6 @@
-body {
-    background-color: goldenrod;
-}
+/* styling för tablet */
+@media screen and (min-width: 600px) {
+    body {
+        background-color: goldenrod;
+    }
+  }

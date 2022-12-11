@@ -1,7 +1,31 @@
-body {
-    background-color: red;
-}
+/* styling för mobil */
+@media screen and (min-width: 325px) { 
+    body {
+        background-image: linear-gradient(to bottom, #e7b7a0, #e9b598, #eab48f, #eab386, #e9b37d, #e9b782, #eabb86, #eabf8b, #ecc99f, #eed2b4, #efdcc8, #efe6dd);
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
 
-#due-date-input {
-    width: 50px;
+    main {
+        width: 50%;
+    }
+
+    #due-date-input {
+        background-image: url('wireframe/icons8-calendar-64.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: black;
+        opacity: 1;
+        display: block;
+        width: 25px;
+        height: 25px;
+        border-width: thin;
+        
+    }
+
+    .todo-item.done .todo-content input {
+        text-decoration: line-through;
+    }
 }

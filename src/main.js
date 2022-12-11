@@ -9,7 +9,7 @@ import './style/style.scss';
 [] Ska kunna välja att visa alla todos, bara de som är klara eller bara de som är aktiva
 [] Ska kunna sorteras efter slutdatum 
 [] Kunna sorteras på datum när de las till
-[] Nya todos ska lägga sig sist i listan
+[] Klara todos ska lägga sig sist i listan
 [] När de passerat deadline ska något hända (annan färg eller text?)
 [] Deadline inom 5 dagar ska visas med text/färg 
 */
@@ -130,7 +130,6 @@ function DisplayTodos() {
       } else {
         todoItem.classList.remove('done');
       }
-      
       DisplayTodos();
     })
 
@@ -159,3 +158,4 @@ function DisplayTodos() {
 }
 
 console.table(todos);
+console.table(completedTodos);
