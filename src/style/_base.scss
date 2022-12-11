@@ -1,8 +1,9 @@
-/* styling för mobil */
-$base: #faeee7;
+$input-color: #FFF5EE;
 $pink: #E7B7A0;
 $golden: #E6B370;
 $dark-grey: #212427;
+
+/* ---------styling for mobile------------------- */
 
 @media screen and (min-width: 325px) { 
     body {
@@ -19,6 +20,20 @@ $dark-grey: #212427;
         margin: auto;
     }
 
+    section {
+        margin: 1.4rem 1.5rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    h2:first-of-type {
+        margin-bottom: 0.8rem;
+    }
+
+/* ------------For all inputfields that are not radiobuttons or checkboxes---------------- */
    input:not([type="radio"]):not([type="checkbox"]), button {
     appearance: none;
     border: none;
@@ -27,26 +42,7 @@ $dark-grey: #212427;
     cursor: initial;
    }
 
-    #due-date-input {
-        background-image: url('wireframe/icons8-calendar-64.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        color: transparent;
-        opacity: 1;
-        display: block;
-        width: 40px;
-        height: 40px;
-        border-width: thin;
-    }
-
-    section {
-        margin: 2rem 1.5rem;
-    }
-
-    h2 {
-        font-size: 1rem;
-        margin: 1rem 0;
-    }
+/* ---------------------The greetingsection with nameinput-------------------------- */
 
     .greeting .title {
         font-size: 1.5rem;
@@ -59,25 +55,40 @@ $dark-grey: #212427;
         min-width: 0;
     }
 
+    /* ---------the dateinput with the calendericon------------------- */
+    #due-date-input {
+        background-image: url('wireframe/icons8-calendar-64.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: transparent;
+        opacity: 1;
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-width: thin;
+    }
+
+/* ---------------------The create todo input-------------------------- */
     .create-todo input[type="text"] {
         display: block;
-        width: 100%;
         font-size: 1.125rem;
+    }
+
+    .todo-input {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
         padding: 0.8rem 1.5rem;
-        background-color: #fff;
         border-radius: 0.6rem;
+        background-color: $input-color;
     }
 
-    .due-date {
-        display: inline;
-        position: relative;
-        bottom: 2.9rem;
-        left: 19rem;
-    }
+/* ---------------------The section with categorys-------------------------- */
 
-    .todo-item.done .todo-content input {
-        text-decoration: line-through;
-    }
+    input[type="radio"] {
+        accent-color: $pink;
+      }
 
     .options {
         display: grid;
@@ -91,13 +102,85 @@ $dark-grey: #212427;
         display: flex;
     }
 
+    .category-info div {
+        margin-right: 10px;
+    }
+
     .create-todo .options label {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         padding: 1.3rem;
-        background-color: #fff;
+        background-color: $input-color;
         border-radius: 0.8rem;
+    }
+
+/* ---------------------The submit button for the todo -------------------------- */
+    .create-todo input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 1rem 1.5rem;
+        margin: 1.5rem 0;
+        font-size: 1.125rem;
+        background-color: $golden;
+        box-shadow: 5px 5px 5px $dark-grey;
+        border-radius: 0.8rem;
+    }
+
+    .create-todo input[type="submit"]:hover {
+        opacity: 0.75;
+    }
+
+    /* ---------------------The section with the todos-------------------------- */
+    .todo-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $input-color;
+        padding: 0.8rem;
+        border-radius: 0.8rem;
+        margin: 1rem 0;;
+    }
+
+    .dueDate-div {
+        font-size: 0.8rem;
+        margin-left: -110px;
+    }
+
+    .category-icon {
+        margin: 0 0.3rem;
+    }
+
+    /* ---------------------The edit and delete buttons-------------------------- */
+    .todo-item .actions {
+        display: flex;
+        align-items: center;
+    }
+
+    .todo-item .actions button {
+        display: block;
+        font-size: 0.9rem;
+        padding: 0.2rem;
+        border-radius: 0.25rem;
+    }
+
+    .todo-item .actions button:hover {
+        opacity: 0.75;
+    }
+
+    .todo-item .actions .edit {
+        background-color: $golden;
+        margin-right: 0.4rem;
+    }
+
+    .todo-item .actions .delete {
+        background-color: $golden;
+    }
+
+    /* ---------------------The strike out a todo when checked-------------------------- */
+    .todo-item.done .todo-content input {
+        text-decoration: line-through;
     }
 }

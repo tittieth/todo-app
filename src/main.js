@@ -78,7 +78,6 @@ function DisplayTodos() {
 
     input.type = 'checkbox';
     input.checked = todo.done; 
-    span.classList.add('bubble');
 
     if (todo.category == 'personal') {
       category.innerHTML = '<i class="fa-solid fa-user"></i>';
@@ -106,14 +105,13 @@ function DisplayTodos() {
     deleteButton.innerHTML = 'Delete';
 
     label.appendChild(input);
-    label.appendChild(span);
-    actions.appendChild(edit);
-    actions.appendChild(deleteButton);
     todoItem.appendChild(label);
     todoItem.appendChild(content);
-    todoItem.appendChild(actions);
     todoItem.appendChild(dueDate);
     todoItem.appendChild(category);
+    todoItem.appendChild(actions);
+    actions.appendChild(edit);
+    actions.appendChild(deleteButton);
 
     todoList.appendChild(todoItem);
 
