@@ -5,9 +5,8 @@
 @use "desktop";
 
 $base: #faeee7;
-$olive: #919478;
-$pink: #f7c9c9;
-$dark-pink: #fa709a;
+$pink: #E7B7A0;
+$golden: #E6B370;
 $dark-grey: #212427;
 
 :root {
@@ -17,7 +16,7 @@ $dark-grey: #212427;
   line-height: 24px;
   font-weight: 400;
   color-scheme: light dark;
-  color: rgb(255 255 255 / 87%);
+  color: $dark-grey;
   background-image: linear-gradient(to bottom, #e7b7a0, #e9b598, #eab48f, #eab386, #e9b37d, #e9b782, #eabb86, #eabf8b, #ecc99f, #eed2b4, #efdcc8, #efe6dd);
   background-attachment: fixed;
   background-position: center;

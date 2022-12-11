@@ -1,4 +1,9 @@
 /* styling för mobil */
+$base: #faeee7;
+$pink: #E7B7A0;
+$golden: #E6B370;
+$dark-grey: #212427;
+
 @media screen and (min-width: 325px) { 
     body {
         background-image: linear-gradient(to bottom, #e7b7a0, #e9b598, #eab48f, #eab386, #e9b37d, #e9b782, #eabb86, #eabf8b, #ecc99f, #eed2b4, #efdcc8, #efe6dd);
@@ -9,23 +14,90 @@
     }
 
     main {
-        width: 50%;
+        max-width: 600px;
+        border: 1px solid black;
+        margin: auto;
     }
+
+   input:not([type="radio"]):not([type="checkbox"]), button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: initial;
+   }
 
     #due-date-input {
         background-image: url('wireframe/icons8-calendar-64.png');
         background-repeat: no-repeat;
         background-size: cover;
-        color: black;
+        color: transparent;
         opacity: 1;
         display: block;
-        width: 25px;
-        height: 25px;
+        width: 40px;
+        height: 40px;
         border-width: thin;
-        
+    }
+
+    section {
+        margin: 2rem 1.5rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+        margin: 1rem 0;
+    }
+
+    .greeting .title {
+        font-size: 1.5rem;
+        display: flex;
+    }
+
+    .greeting .title input {
+        margin-left: 0.5rem;
+        flex: 1 1 0%;
+        min-width: 0;
+    }
+
+    .create-todo input[type="text"] {
+        display: block;
+        width: 100%;
+        font-size: 1.125rem;
+        padding: 0.8rem 1.5rem;
+        background-color: #fff;
+        border-radius: 0.6rem;
+    }
+
+    .due-date {
+        display: inline;
+        position: relative;
+        bottom: 2.9rem;
+        left: 19rem;
     }
 
     .todo-item.done .todo-content input {
         text-decoration: line-through;
+    }
+
+    .options {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: 1fr 1fr; 
+        gap: 15px 15px; 
+        margin: 1rem 0;
+    }
+
+    .category-info {
+        display: flex;
+    }
+
+    .create-todo .options label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1.3rem;
+        background-color: #fff;
+        border-radius: 0.8rem;
     }
 }

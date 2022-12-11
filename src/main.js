@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
   nameInput.value = username;
 
   nameInput.addEventListener('change', e => {
-    localStorage.setItem('username', e.target.value);
+    localStorage.setItem('username', e.target.value + '!');
   })
 
   // Tar användarens inputs och lägger in det i listan todos 

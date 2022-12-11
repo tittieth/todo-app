@@ -16,7 +16,7 @@
   <main>
     <section class="greeting">
       <h1 class="title">
-        Hi there, <input type="text" id="name" placeholder="Name here">!
+        Hi there, <input type="text" id="name" placeholder="Name here">
       </h1>
     </section>
 
@@ -24,40 +24,42 @@
       <h2>Create a todo</h2>
       <form id="new-todo-form">
         <input type="text" name="content" id="content" placeholder="e.g. Get milk" required>
-
         <div class="due-date">
-          <p id="due-date">Due date:</p>
           <input type="date" name="dueDate" id="due-date-input">
         </div>
 
-        <h3>Pick a cetegory</h3>
+        <h2>Pick a cetegory</h2>
         <div class="options">
           <label>
+            <div class="category-info">
+              <div><i class="fa-solid fa-user"></i></div>
+              <p>Personal</p>
+            </div>
             <input type="radio" name="category" id="category1" value="personal">
-            <span class="bubble personal"></span>
-            <div><i class="fa-solid fa-user"></i></div>
-            <div>Personal</div>
           </label>
 
           <label>
+            <div class="category-info">
+              <div><i class="fa-solid fa-children"></i></div>
+              <p>Kids</p>
+            </div>
             <input type="radio" name="category" id="category2" value="kids">
-            <span class="bubble kids"></span>
-            <div><i class="fa-solid fa-children"></i></div>
-            <div>Kids</div>
           </label>
 
           <label>
+            <div class="category-info">
+              <div><i class="fa-solid fa-laptop-code"></i></div>
+              <p>Job</p>
+            </div>
             <input type="radio" name="category" id="category3" value="job">
-            <span class="bubble job"></span>
-            <div><i class="fa-solid fa-laptop-code"></i></div>
-            <div>Job</div>
           </label>
 
           <label>
+            <div class="category-info">
+              <div><i class="fa-solid fa-heart"></i></div>
+              <p>Other</p>
+            </div>
             <input type="radio" name="category" id="category4" value="other">
-            <span class="bubble other"></span>
-            <div><i class="fa-solid fa-heart"></i></div>
-            <div>Other</div>
           </label>
         </div>
 
