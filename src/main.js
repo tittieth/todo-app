@@ -68,7 +68,6 @@ function DisplayTodos() {
 
     const label = document.createElement('label');
     const input = document.createElement('input');
-    const span = document.createElement('span');
     const content = document.createElement('div');
     const dueDate = document.createElement('div');
     const category = document.createElement('div');
@@ -80,16 +79,16 @@ function DisplayTodos() {
     input.checked = todo.done; 
 
     if (todo.category == 'personal') {
-      category.innerHTML = '<i class="fa-solid fa-user"></i>';
+      category.innerHTML = '<img src="public/icon-personal.png"/>';
     }
     if (todo.category == 'kids') {
-      category.innerHTML = '<i class="fa-solid fa-children"></i>';
+      category.innerHTML = '<img src="public/icon-kids.png"/>';
     }
     if (todo.category == 'job') {
-      category.innerHTML = '<i class="fa-solid fa-laptop-code">';
+      category.innerHTML = '<img src="public/icon-job.png"/>';
     } 
     if (todo.category == 'other') {
-      category.innerHTML = '<i class="fa-solid fa-heart"></i>';
+      category.innerHTML = '<img src="public/icon-other.png"/>';
     };
 
     content.classList.add('todo-content');
