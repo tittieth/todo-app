@@ -104,10 +104,11 @@ $dark-grey: #212427;
 
     .category-info {
         display: flex;
+        align-items: center;
     }
 
     .category-info div {
-        margin-right: 10px;
+        margin-right: 5px;
     }
 
     .create-todo .options label {
@@ -148,7 +149,7 @@ $dark-grey: #212427;
         margin: 1rem 0;;
     }
 
-    .dueDate-div {
+    .duedate-div {
         font-size: 0.8rem;
         margin-left: -110px;
     }

@@ -55,6 +55,11 @@ window.addEventListener('load', () => {
   }
   DisplayTodos();
 })
+/*
+todos.sort((todos1, todos2) => {
+  return todos1.dueDate > todos2.dueDate;
+});
+*/
 
 // Funktion för att skriva ut användarens todo
 function DisplayTodos() {
@@ -92,7 +97,7 @@ function DisplayTodos() {
     };
 
     content.classList.add('todo-content');
-    dueDate.classList.add('dueDate-div');
+    dueDate.classList.add('duedate-div');
     category.classList.add('category-icon');
     actions.classList.add('actions');
     edit.classList.add('edit');
@@ -152,6 +157,11 @@ function DisplayTodos() {
       DisplayTodos();
     }
   })
+}
+
+function moveToEnd() {
+
+
 }
 
 console.table(todos);
