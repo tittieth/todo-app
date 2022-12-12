@@ -14,7 +14,7 @@ import './style/style.scss';
 [] Deadline inom 5 dagar ska visas med text/färg 
 */
 
-// Har utgått från en video av Tyler Potts och ändrat och lagt till lite saker.
+// Have been using a video from Tyler Potts for help to create this todo-app
 
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
 let activeTodos = JSON.parse(localStorage.getItem('activeTodos')) || [];
@@ -24,14 +24,14 @@ const nameInput = document.querySelector('#name');
 const username = localStorage.getItem('username') || '';
 
 window.addEventListener('load', () => {
-  // För att spara användarens namn
+  // Saves the users nameinput in localstorage and convert it to uppercase
   nameInput.value = username.toUpperCase();
 
   nameInput.addEventListener('change', e => {
     localStorage.setItem('username', e.target.value + '!');
   })
 
-  // Tar användarens inputs och lägger in det i listan todos 
+  // To get the values from the inputfields
   newTodoForm.addEventListener('submit', addNewTodo);
 
   function addNewTodo(e) {
@@ -55,13 +55,29 @@ window.addEventListener('load', () => {
   }
   DisplayTodos();
 })
-/*
-todos.sort((todos1, todos2) => {
-  return todos1.dueDate > todos2.dueDate;
-});
-*/
 
-// Funktion för att skriva ut användarens todo
+// To sort by duedate
+function sortByDueDate() {
+  todos.sort((todos1, todos2) => {
+    return todos1.dueDate > todos2.dueDate;
+  });
+}
+
+// To sort by the date it was created
+function sortByDate() {
+  todos.sort((todos1, todos2) => {
+    return todos1.createdAt > todos2.createdAt;
+  });
+}
+
+// To sort by name
+function sortByName() {
+  todos.sort((todos1, todos2) => {
+    return todos1.content > todos2.content;
+  });
+}
+
+// Prints out the users todos
 function DisplayTodos() {
   const todoList = document.querySelector('#todo-list');
 
@@ -157,11 +173,6 @@ function DisplayTodos() {
       DisplayTodos();
     }
   })
-}
-
-function moveToEnd() {
-
-
 }
 
 console.table(todos);
