@@ -25,7 +25,7 @@ const username = localStorage.getItem('username') || '';
 
 window.addEventListener('load', () => {
   // För att spara användarens namn
-  nameInput.value = username;
+  nameInput.value = username.toUpperCase();
 
   nameInput.addEventListener('change', e => {
     localStorage.setItem('username', e.target.value + '!');
