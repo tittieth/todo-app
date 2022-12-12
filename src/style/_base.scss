@@ -7,17 +7,18 @@ $dark-grey: #212427;
 
 @media screen and (min-width: 325px) { 
     body {
-        background-image: linear-gradient(to bottom, #e7b7a0, #e9b598, #eab48f, #eab386, #e9b37d, #e9b782, #eabb86, #eabf8b, #ecc99f, #eed2b4, #efdcc8, #efe6dd);
-        background-attachment: fixed;
-        background-position: center;
-        background-size: cover;
-        position: relative;
+        background-color: #ecc99f;
     }
 
     main {
         max-width: 600px;
         border: 1px solid black;
         margin: auto;
+        background-image: linear-gradient(to bottom, #e7b7a0, #e9b598, #eab48f, #eab386, #e9b37d, #e9b782, #eabb86, #eabf8b, #ecc99f, #eed2b4, #efdcc8, #efe6dd);
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        position: relative;
     }
 
     section {
@@ -83,7 +84,7 @@ $dark-grey: #212427;
         width: 100%;
         align-items: center;
         justify-content: space-between;
-        padding: 0.8rem 1.5rem;
+        padding: 0.5rem 1.5rem;
         border-radius: 0.6rem;
         background-color: $input-color;
     }
@@ -111,12 +112,12 @@ $dark-grey: #212427;
         margin-right: 5px;
     }
 
-    .create-todo .options label {
+    .create-todo .options .options-div {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 1.3rem;
+        padding: 0.9rem;
         background-color: $input-color;
         border-radius: 0.8rem;
     }
@@ -125,7 +126,7 @@ $dark-grey: #212427;
     .create-todo input[type="submit"] {
         display: block;
         width: 100%;
-        padding: 1rem 1.5rem;
+        padding: 0.8rem 1.5rem;
         margin: 1.5rem 0;
         font-size: 1.125rem;
         background-color: $golden;

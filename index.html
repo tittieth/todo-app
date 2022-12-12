@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/ico" href="/favicon.ico" />
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/ico" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/6e63925041.js" crossorigin="anonymous"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TODO-APP</title>
 </head>
 
@@ -32,37 +32,37 @@
 
         <h2>Pick a cetegory</h2>
         <div class="options">
-          <label>
+          <div class="options-div">
             <div class="category-info">
-              <div><img src="public/icon-personal.png" alt="icon with a person" width="30" height="30"></div>
+              <span><img src="public/icon-personal.png" alt="icon with a person" width="30" height="30"></span>
               <p>Personal</p>
             </div>
             <input type="radio" name="category" id="category1" value="personal">
-          </label>
+          </div>
 
-          <label>
+          <div class="options-div">
             <div class="category-info">
               <div><img src="public/icon-kids.png" alt="icon with a person" width="30" height="30"></div>
               <p>Kids</p>
             </div>
             <input type="radio" name="category" id="category2" value="kids">
-          </label>
+          </div>
 
-          <label>
+          <div class="options-div">
             <div class="category-info">
               <div><img src="public/icon-job.png" alt="icon with a person" width="30" height="30"></div>
               <p>Job</p>
             </div>
             <input type="radio" name="category" id="category3" value="job">
-          </label>
+          </div>
 
-          <label>
+          <div class="options-div">
             <div class="category-info">
               <div><img src="public/icon-other.png" alt="icon with a person" width="30" height="30"></div>
               <p>Other</p>
             </div>
             <input type="radio" name="category" id="category4" value="other">
-          </label>
+          </div>
         </div>
 
         <input type="submit" value="Add Todo">
@@ -73,19 +73,19 @@
       
     <section class="todo-list">
       <h2>Todo list</h2>
-      <div class="list" id="todo-list">
+      <div class="list" id="todo-list"></div>
     </section>
     <footer>
         <div class="list-status">
           <p class="left-corner"><span id="items-left">0</span>Todos left</p>
         </div>
         <div class="filter">
-          <button id="all" class="on">All</button>
-          <button id="active">Active</button>
-          <button id="completed">Completed</button>
+          <button type="button" id="all" class="on">All</button>
+          <button type="button" id="active">Active</button>
+          <button type="button" id="completed">Completed</button>
         </div>
         <div class="right-corner">
-          <button id="clear-completed">Clear Completed</button>
+          <button type="button" id="clear-completed">Clear Completed</button>
         </div>
     </footer>
   </main>

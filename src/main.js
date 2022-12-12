@@ -175,5 +175,12 @@ function DisplayTodos() {
   })
 }
 
+const completed = document.querySelector('#completed')
+completed.addEventListener('click', showCompletedTodos);
+
+function showCompletedTodos() {
+
+}
+
 console.table(todos);
 console.table(completedTodos);
