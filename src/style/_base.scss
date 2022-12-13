@@ -204,4 +204,20 @@ $dark-grey: #212427;
     .filter {
         display: flex;
     }
+
+    #all, #active, #completed, #clear-completed {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        margin: 0.125rem;
+        border-radius: 0.8rem;
+
+    }
+
+    #all:hover, #active:hover {
+        background-color: $input-color;
+    }
+
+    .left-corner {
+        font-size: 0.8rem;
+    }
 }
