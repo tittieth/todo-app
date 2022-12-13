@@ -5,7 +5,7 @@ import './style/style.scss';
 [X] Ska kunna lägga till todos och välja kategori och datum
 [X] Ska kunna ta bort todos 
 [X] Ska kunna redigera todos 
-[] Ska kunna markera en todo som klar och då läggs den till i en lista med klara 
+[X] Ska kunna markera en todo som klar och då läggs den till i en lista med klara 
 [] Ska kunna välja att visa alla todos, bara de som är klara eller bara de som är aktiva
 [] Ska kunna sorteras efter slutdatum 
 [] Kunna sorteras på datum när de las till
@@ -51,10 +51,10 @@ window.addEventListener('load', () => {
     e.target.reset();
 
     DisplayTodos();
-    countTodos();
+    countTodos(todos);
   }
   DisplayTodos();
-  countTodos();
+  countTodos(todos);
 })
 
 // To sort by duedate
@@ -151,7 +151,7 @@ function DisplayTodos() {
         todoItem.classList.remove('done');
       }
       DisplayTodos();
-      countTodos();
+      countTodos(todos);
     })
 
     edit.addEventListener('click', editTodo); 
@@ -174,7 +174,7 @@ function DisplayTodos() {
       todos = todos.filter(t => t != todo);
       localStorage.setItem('todos', JSON.stringify(todos));
       DisplayTodos();
-      countTodos();
+      countTodos(todos);
     }
   })
 }
@@ -251,7 +251,7 @@ function showCompletedTodos() {
         todoItem.classList.remove('done');
       }
       DisplayTodos();
-      countTodos();
+      countTodos(completedTodos);
     })
 
     edit.addEventListener('click', editTodo); 
@@ -274,18 +274,19 @@ function showCompletedTodos() {
       todos = todos.filter(t => t != todo);
       localStorage.setItem('todos', JSON.stringify(todos));
       DisplayTodos();
-      countTodos();
-    }
+      countTodos(completedTodos);
+    }  
   })
+  countTodos(completedTodos);
 }
 
-function countTodos() {
+function countTodos(arr) {
   const todosLeft = document.querySelector('#items-left');
-  const counterString = todos.length === 1 ? 'todo' : 'todos';
-  todosLeft.innerHTML = `${todos.length} ${counterString}`;
+  const counterString = arr.length === 1 ? 'todo' : 'todos';
+  todosLeft.innerHTML = `${arr.length} ${counterString}`;
 }
 
-countTodos();
+countTodos(todos);
 
 console.table(completedTodos);
 console.table(todos);
