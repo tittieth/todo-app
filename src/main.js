@@ -6,7 +6,7 @@ import './style/style.scss';
 [X] Ska kunna ta bort todos 
 [X] Ska kunna redigera todos 
 [X] Ska kunna markera en todo som klar och då läggs den till i en lista med klara 
-[] Ska kunna välja att visa alla todos, bara de som är klara eller bara de som är aktiva
+[X] Ska kunna välja att visa alla todos, bara de som är klara eller bara de som är aktiva
 [] Ska kunna sorteras efter slutdatum 
 [] Kunna sorteras på datum när de las till
 [] Klara todos ska lägga sig sist i listan
@@ -20,7 +20,17 @@ let todos = JSON.parse(localStorage.getItem('todos')) || [];
 const newTodoForm = document.querySelector('#new-todo-form');
 const nameInput = document.querySelector('#name');
 const username = localStorage.getItem('username') || '';
-const completedTodos = todos.filter(todo => todo.done == true);
+
+const completedBtn = document.querySelector('#completed');
+completedBtn.addEventListener('click', showCompletedTodos);
+
+const activeBtn = document.querySelector('#active');
+activeBtn.addEventListener('click', showActiveTodos);
+
+const allBtn = document.querySelector('#all');
+allBtn.addEventListener('click', allTodos);
+
+const todoList = document.querySelector('#todo-list');
 
 window.addEventListener('load', () => {
   // Saves the users nameinput in localstorage and convert it to uppercase
@@ -77,11 +87,6 @@ function sortByName() {
     return todos1.content > todos2.content;
   });
 }
-
-const completedBtn = document.querySelector('#completed');
-completedBtn.addEventListener('click', showCompletedTodos);
-
-const todoList = document.querySelector('#todo-list');
 
 // Prints out the users todos
 function DisplayTodos(arr) {
@@ -164,7 +169,7 @@ function DisplayTodos(arr) {
       input.addEventListener('blur', e => {
         input.setAttribute('readonly', true);
         todo.content = e.target.value;
-        localStorage.setItem('arr', JSON.stringify(arr));
+        localStorage.setItem('todos', JSON.stringify(todos));
         DisplayTodos(todos);
       })
     }
@@ -172,13 +177,25 @@ function DisplayTodos(arr) {
     deleteButton.addEventListener('click', deleteTodo);
 
     function deleteTodo (e) {
-      arr = arr.filter(t => t != todo);
-      localStorage.setItem('arr', JSON.stringify(arr));
+      todos = todos.filter(t => t != todo);
+      localStorage.setItem(('todos'), JSON.stringify(todos));
       DisplayTodos(todos);
       countTodos(todos);
     }
   })
 }
+
+function allTodos() {
+  DisplayTodos(todos);
+  countTodos(todos);
+}
+
+function showActiveTodos() {
+  const activeTodos = todos.filter(todo => todo.done == false);
+  DisplayTodos(activeTodos);
+  countTodos(activeTodos);
+}
+
 
 function showCompletedTodos() {
   const completedTodos = todos.filter(todo => todo.done == true);
@@ -192,7 +209,4 @@ function countTodos(arr) {
   todosLeft.innerHTML = `${arr.length} ${counterString}`;
 }
 
-countTodos(todos);
-
-console.table(completedTodos);
 console.table(todos);
