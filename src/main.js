@@ -28,7 +28,7 @@ const activeBtn = document.querySelector('#active');
 activeBtn.addEventListener('click', showActiveTodos);
 
 const allBtn = document.querySelector('#all');
-allBtn.addEventListener('click', allTodos);
+allBtn.addEventListener('click', showAllTodos);
 
 const todoList = document.querySelector('#todo-list');
 
@@ -66,6 +66,8 @@ window.addEventListener('load', () => {
   DisplayTodos(todos);
   countTodos(todos);
 })
+
+// ska göras om till en funktion 
 
 // To sort by duedate
 function sortByDueDate() {
@@ -149,15 +151,13 @@ function DisplayTodos(arr) {
 
     input.addEventListener('click', (e) => {
       todo.done = e.target.checked;
-      localStorage.setItem('arr', JSON.stringify(arr));
+      localStorage.setItem('todos', JSON.stringify(todos));
 
       if (todo.done) {
         todoItem.classList.add('done');
       } else {
         todoItem.classList.remove('done');
       }
-      DisplayTodos(todos);
-      countTodos(todos);
     })
 
     edit.addEventListener('click', editTodo); 
@@ -170,7 +170,6 @@ function DisplayTodos(arr) {
         input.setAttribute('readonly', true);
         todo.content = e.target.value;
         localStorage.setItem('todos', JSON.stringify(todos));
-        DisplayTodos(todos);
       })
     }
 
@@ -185,7 +184,7 @@ function DisplayTodos(arr) {
   })
 }
 
-function allTodos() {
+function showAllTodos() {
   DisplayTodos(todos);
   countTodos(todos);
 }
