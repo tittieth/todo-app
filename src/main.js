@@ -50,10 +50,10 @@ window.addEventListener('load', () => {
 
     e.target.reset();
 
-    DisplayTodos();
+    DisplayTodos(todos);
     countTodos(todos);
   }
-  DisplayTodos();
+  DisplayTodos(todos);
   countTodos(todos);
 })
 
@@ -82,11 +82,12 @@ const completedBtn = document.querySelector('#completed');
 completedBtn.addEventListener('click', showCompletedTodos);
 
 const todoList = document.querySelector('#todo-list');
+
 // Prints out the users todos
-function DisplayTodos() {
+function DisplayTodos(arr) {
   todoList.innerHTML = '';
 
-  todos.forEach(todo => {
+  arr.forEach(todo => {
     const todoItem = document.createElement('div');
     todoItem.classList.add('todo-item')
 
@@ -143,14 +144,14 @@ function DisplayTodos() {
 
     input.addEventListener('click', (e) => {
       todo.done = e.target.checked;
-      localStorage.setItem('todos', JSON.stringify(todos));
+      localStorage.setItem('arr', JSON.stringify(arr));
 
       if (todo.done) {
         todoItem.classList.add('done');
       } else {
         todoItem.classList.remove('done');
       }
-      DisplayTodos();
+      DisplayTodos(todos);
       countTodos(todos);
     })
 
@@ -163,120 +164,25 @@ function DisplayTodos() {
       input.addEventListener('blur', e => {
         input.setAttribute('readonly', true);
         todo.content = e.target.value;
-        localStorage.setItem('todos', JSON.stringify(todos));
-        DisplayTodos();
+        localStorage.setItem('arr', JSON.stringify(arr));
+        DisplayTodos(todos);
       })
     }
 
     deleteButton.addEventListener('click', deleteTodo);
 
     function deleteTodo (e) {
-      todos = todos.filter(t => t != todo);
-      localStorage.setItem('todos', JSON.stringify(todos));
-      DisplayTodos();
+      arr = arr.filter(t => t != todo);
+      localStorage.setItem('arr', JSON.stringify(arr));
+      DisplayTodos(todos);
       countTodos(todos);
     }
   })
 }
 
-/* Vet att det är kodupprepning här så ska skriva om koden. Skulle bara testa så det funkade */
-
 function showCompletedTodos() {
   const completedTodos = todos.filter(todo => todo.done == true);
-  
-  todoList.innerHTML = '';
-
-  completedTodos.forEach(todo => {
-    const todoItem = document.createElement('div');
-    todoItem.classList.add('todo-item')
-
-    const label = document.createElement('label');
-    const input = document.createElement('input');
-    const content = document.createElement('div');
-    const dueDate = document.createElement('div');
-    const category = document.createElement('div');
-    const actions = document.createElement('div');
-    const edit = document.createElement('button');
-    const deleteButton = document.createElement('button');
-
-    input.type = 'checkbox';
-    input.checked = todo.done; 
-
-    if (todo.category == 'personal') {
-      category.innerHTML = '<img src="public/icon-personal.png"/>';
-    }
-    if (todo.category == 'kids') {
-      category.innerHTML = '<img src="public/icon-kids.png"/>';
-    }
-    if (todo.category == 'job') {
-      category.innerHTML = '<img src="public/icon-job.png"/>';
-    } 
-    if (todo.category == 'other') {
-      category.innerHTML = '<img src="public/icon-other.png"/>';
-    };
-
-    content.classList.add('todo-content');
-    dueDate.classList.add('duedate-div');
-    category.classList.add('category-icon');
-    actions.classList.add('actions');
-    edit.classList.add('edit');
-    deleteButton.classList.add('delete');
-
-    dueDate.innerHTML = todo.dueDate;
-    content.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
-    edit.innerHTML = 'Edit';
-    deleteButton.innerHTML = 'Delete';
-
-    label.appendChild(input);
-    todoItem.appendChild(label);
-    todoItem.appendChild(content);
-    todoItem.appendChild(dueDate);
-    todoItem.appendChild(category);
-    todoItem.appendChild(actions);
-    actions.appendChild(edit);
-    actions.appendChild(deleteButton);
-    todoList.appendChild(todoItem);
-
-    if (todo.done) {
-      todoItem.classList.add('done');
-    }
-
-    input.addEventListener('click', (e) => {
-      todo.done = e.target.checked;
-      localStorage.setItem('todos', JSON.stringify(todos));
-
-      if (todo.done) {
-        todoItem.classList.add('done');
-      } else {
-        todoItem.classList.remove('done');
-      }
-      DisplayTodos();
-      countTodos(completedTodos);
-    })
-
-    edit.addEventListener('click', editTodo); 
-
-    function editTodo (e) {
-      const input = content.querySelector('input');
-      input.removeAttribute('readonly');
-      input.focus();
-      input.addEventListener('blur', e => {
-        input.setAttribute('readonly', true);
-        todo.content = e.target.value;
-        localStorage.setItem('todos', JSON.stringify(todos));
-        DisplayTodos();
-      })
-    }
-
-    deleteButton.addEventListener('click', deleteTodo);
-
-    function deleteTodo (e) {
-      todos = todos.filter(t => t != todo);
-      localStorage.setItem('todos', JSON.stringify(todos));
-      DisplayTodos();
-      countTodos(completedTodos);
-    }  
-  })
+  DisplayTodos(completedTodos);
   countTodos(completedTodos);
 }
 

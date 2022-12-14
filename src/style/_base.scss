@@ -213,8 +213,8 @@ $dark-grey: #212427;
 
     }
 
-    #all:hover, #active:hover {
-        background-color: $input-color;
+    #all:hover, #active:hover, #completed:hover {
+        opacity: 0.55;
     }
 
     .left-corner {
