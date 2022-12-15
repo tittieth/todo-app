@@ -223,4 +223,28 @@ $dark-grey: #212427;
     .left-corner {
         font-size: 0.8rem;
     }
+
+    #sort {
+        appearance: none;
+        border: none;
+        background-color: transparent;
+        font-size: 1.3rem;
+        color: $dark-grey;
+        cursor: pointer;
+    }
+
+    .sort {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px 0;
+    }
+
+    .sort h2 {
+        margin: 0;
+    }
+
+    .fa-sort {
+        color: darkgoldenrod;
+    }
 }

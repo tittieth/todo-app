@@ -67,8 +67,6 @@ window.addEventListener('load', () => {
   countTodos(todos);
 })
 
-// ska göras om till en funktion 
-
 // To sort by duedate
 function sortByDueDate() {
   todos.sort((todos1, todos2) => {
@@ -88,6 +86,31 @@ function sortByName() {
   todos.sort((todos1, todos2) => {
     return todos1.content > todos2.content;
   });
+}
+
+function sortByCategory() {
+  todos.sort((todos1, todos2) => {
+    return todos1.category > todos2.category;
+  });
+}
+
+const sortSelect = document.querySelector('#sort');
+sortSelect.addEventListener('change', sortTodos);
+
+function sortTodos() {
+  const sortValue = sortSelect.value;
+
+  if (sortValue === 'name') {
+    sortByName();
+  } else if (sortValue === 'added-date') {
+    sortByDate();
+  } else if (sortValue === 'due-date') {
+    sortByDueDate();
+  } else if (sortValue === 'category') {
+    sortByCategory();
+  }
+
+  DisplayTodos(todos);
 }
 
 // Prints out the users todos
