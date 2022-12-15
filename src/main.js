@@ -7,8 +7,8 @@ import './style/style.scss';
 [X] Ska kunna redigera todos 
 [X] Ska kunna markera en todo som klar och då läggs den till i en lista med klara 
 [X] Ska kunna välja att visa alla todos, bara de som är klara eller bara de som är aktiva
-[] Ska kunna sorteras efter slutdatum 
-[] Kunna sorteras på datum när de las till
+[X] Ska kunna sorteras efter slutdatum 
+[X] Kunna sorteras på datum när de las till
 [] Klara todos ska lägga sig sist i listan
 [] När de passerat deadline ska något hända (annan färg eller text?)
 [] Deadline inom 5 dagar ska visas med text/färg 
@@ -20,6 +20,11 @@ let todos = JSON.parse(localStorage.getItem('todos')) || [];
 const newTodoForm = document.querySelector('#new-todo-form');
 const nameInput = document.querySelector('#name');
 const username = localStorage.getItem('username') || '';
+
+const todayDate = new Date();
+const month = todayDate.getMonth() +1;
+const year = todayDate.getUTCFullYear() - 0;
+const tdate = todayDate.getDate();
 
 const completedBtn = document.querySelector('#completed');
 completedBtn.addEventListener('click', showCompletedTodos);
@@ -39,6 +44,19 @@ window.addEventListener('load', () => {
   nameInput.addEventListener('change', e => {
     localStorage.setItem('username', e.target.value + '!');
   })
+
+  function disablePastDates() {
+      if (month < 10) {
+          month = "0" + month
+      }
+      if (tdate < 10) {
+          tdate = "0" + tdate;
+      }
+    var minDate = year + "-" + month + "-" + tdate;
+    document.getElementById("due-date-input").setAttribute("min", minDate);
+  }
+  
+  disablePastDates();
 
   // To get the values from the inputfields
   newTodoForm.addEventListener('submit', addNewTodo);
