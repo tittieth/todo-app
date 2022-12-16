@@ -69,8 +69,8 @@ $dark-grey: #212427;
         background-size: cover;
         color: transparent;
         opacity: 1;
-        width: 35px;
-        height: 30px;
+        width: 45px;
+        height: 40px;
         margin-right: 20px;
         border-width: thin;
     }
@@ -257,6 +257,8 @@ $dark-grey: #212427;
     input[type="date"]::-webkit-datetime-edit-day-field,
     input[type="date"]::-webkit-datetime-edit-year-field {
     opacity: 0;
+    width: 50px;
+    height: 40px;
     color: transparent;
     appearance: none;
     }
