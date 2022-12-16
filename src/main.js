@@ -26,16 +26,16 @@ const month = todayDate.getMonth() +1;
 const year = todayDate.getUTCFullYear() - 0;
 const tdate = todayDate.getDate();
 
+const sortSelect = document.querySelector('#sort');
 const completedBtn = document.querySelector('#completed');
-completedBtn.addEventListener('click', showCompletedTodos);
-
 const activeBtn = document.querySelector('#active');
-activeBtn.addEventListener('click', showActiveTodos);
-
 const allBtn = document.querySelector('#all');
-allBtn.addEventListener('click', showAllTodos);
-
 const todoList = document.querySelector('#todo-list');
+
+sortSelect.addEventListener('change', sortTodos);
+completedBtn.addEventListener('click', showCompletedTodos);
+activeBtn.addEventListener('click', showActiveTodos);
+allBtn.addEventListener('click', showAllTodos);
 
 window.addEventListener('load', () => {
   // Saves the users nameinput in localstorage and convert it to uppercase
@@ -56,10 +56,8 @@ window.addEventListener('load', () => {
     var minDate = year + "-" + month + "-" + tdate;
     document.getElementById("due-date-input").setAttribute("min", minDate);
   }
-  
   disablePastDates();
 
-  // To get the values from the inputfields
   newTodoForm.addEventListener('submit', addNewTodo);
 
   function addNewTodo(e) {
@@ -79,6 +77,7 @@ window.addEventListener('load', () => {
 
     e.target.reset();
 
+    moveToEndOfArray();
     DisplayTodos(todos);
     countTodos(todos);
   }
@@ -86,6 +85,7 @@ window.addEventListener('load', () => {
   countTodos(todos);
 })
 
+// When a todo is checked it will move down on the list
 function moveToEndOfArray() {
   todos.sort((todos1, todos2) => {
     return todos1.done > todos2.done;
@@ -109,19 +109,18 @@ function sortByDate() {
 // To sort by name
 function sortByName() {
   todos.sort((todos1, todos2) => {
-    return todos1.content > todos2.content;
+    return todos1.content.toLowerCase() > todos2.content.toLowerCase();
   });
 }
 
+// To sort by category
 function sortByCategory() {
   todos.sort((todos1, todos2) => {
     return todos1.category > todos2.category;
   });
 }
 
-const sortSelect = document.querySelector('#sort');
-sortSelect.addEventListener('change', sortTodos);
-
+// To sort the todos
 function sortTodos() {
   const sortValue = sortSelect.value;
 
@@ -134,7 +133,6 @@ function sortTodos() {
   } else if (sortValue === 'category') {
     sortByCategory();
   }
-
   DisplayTodos(todos);
 }
 
@@ -253,5 +251,4 @@ function countTodos(arr) {
   todosLeft.innerHTML = `${arr.length} ${counterString}`;
 }
 
-moveToEndOfArray();
 console.table(todos);
