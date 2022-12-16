@@ -5,7 +5,7 @@ $dark-grey: #212427;
 
 /* ---------styling for mobile------------------- */
 
-@media screen and (min-width: 325px) { 
+@media screen and (min-width: 360px) { 
     body {
         background-color: seashell;
         margin: auto;
@@ -14,7 +14,6 @@ $dark-grey: #212427;
 
     main {
         max-width: 600px;
-        padding: 20px;
         border: 1px solid black;
         margin: auto;
         background-image: linear-gradient(to bottom, #e7b7a0, #e9b598, #eab48f, #eab386, #e9b37d, #e9b782, #eabb86, #eabf8b, #ecc99f, #eed2b4, #efdcc8, #efe6dd);
@@ -71,8 +70,8 @@ $dark-grey: #212427;
         color: transparent;
         opacity: 1;
         display: block;
-        width: 40px;
-        height: 40px;
+        width: 25px;
+        height: 25px;
         border-width: thin;
     }
 
@@ -87,7 +86,7 @@ $dark-grey: #212427;
         width: 100%;
         align-items: center;
         justify-content: space-between;
-        padding: 0.5rem 1.5rem;
+        padding: 0.5rem 1rem;
         border-radius: 0.6rem;
         background-color: $input-color;
     }
@@ -150,7 +149,6 @@ $dark-grey: #212427;
         background-color: $input-color;
         padding: 0.8rem;
         border-radius: 0.8rem;
-        margin: 1rem 0;;
     }
 
     .duedate-div {
@@ -198,11 +196,14 @@ $dark-grey: #212427;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         background-color: $golden;
-        padding: 0.7rem;
         border-radius: 0.8rem;
         width: 100%;
+    }
+
+    .list-status {
+        padding-left: 10px;
     }
 
     .filter {
@@ -210,7 +211,6 @@ $dark-grey: #212427;
     }
 
     #all, #active, #completed, #clear-completed, #clear-all {
-        font-size: 1rem;
         padding: 0.5rem 1rem;
         margin: 0.125rem;
         border-radius: 0.8rem;
@@ -222,15 +222,11 @@ $dark-grey: #212427;
         background-color: $input-color;
     }
 
-    #items-left {
-        font-size: 1rem;
-    }
-
     #sort {
         appearance: none;
         border: none;
         background-color: transparent;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         color: $dark-grey;
         cursor: pointer;
     }
@@ -248,5 +244,17 @@ $dark-grey: #212427;
 
     .fa-sort {
         color: darkgoldenrod;
+    }
+
+    /* -----Hide Calendar Icon In Chrome----- */
+    input[type="date"]::-webkit-inner-spin-button,
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type=date]::-webkit-datetime-edit-text,
+    input[type=date]::-webkit-datetime-edit-month-field,
+    input[type=date]::-webkit-datetime-edit-day-field,
+    input[type=date]::-webkit-datetime-edit-year-field {
+    opacity: 0;
+    color: transparent;
+    -webkit-appearance: none;
     }
 }
