@@ -9,7 +9,7 @@ import './style/style.scss';
 [X] Ska kunna välja att visa alla todos, bara de som är klara eller bara de som är aktiva
 [X] Ska kunna sorteras efter slutdatum 
 [X] Kunna sorteras på datum när de las till
-[] Klara todos ska lägga sig sist i listan
+[X] Klara todos ska lägga sig sist i listan
 [] När de passerat deadline ska något hända (annan färg eller text?)
 [] Deadline inom 5 dagar ska visas med text/färg 
 */
@@ -45,9 +45,10 @@ window.addEventListener('load', () => {
     localStorage.setItem('username', e.target.value + '!');
   })
 
+  // To disable past dates in the calender
   function disablePastDates() {
       if (month < 10) {
-          month = "0" + month
+          month = "0" + month;
       }
       if (tdate < 10) {
           tdate = "0" + tdate;
@@ -84,6 +85,12 @@ window.addEventListener('load', () => {
   DisplayTodos(todos);
   countTodos(todos);
 })
+
+function moveToEndOfArray() {
+  todos.sort((todos1, todos2) => {
+    return todos1.done > todos2.done;
+  });
+}
 
 // To sort by duedate
 function sortByDueDate() {
@@ -186,12 +193,10 @@ function DisplayTodos(arr) {
     actions.appendChild(deleteButton);
     todoList.appendChild(todoItem);
 
-    if (todo.done) {
-      todoItem.classList.add('done');
-    }
-
     input.addEventListener('click', (e) => {
       todo.done = e.target.checked;
+      moveToEndOfArray();
+      DisplayTodos(todos);
       localStorage.setItem('todos', JSON.stringify(todos));
 
       if (todo.done) {
@@ -236,7 +241,6 @@ function showActiveTodos() {
   countTodos(activeTodos);
 }
 
-
 function showCompletedTodos() {
   const completedTodos = todos.filter(todo => todo.done == true);
   DisplayTodos(completedTodos);
@@ -249,4 +253,5 @@ function countTodos(arr) {
   todosLeft.innerHTML = `${arr.length} ${counterString}`;
 }
 
+moveToEndOfArray();
 console.table(todos);

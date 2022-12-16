@@ -191,6 +191,7 @@ $dark-grey: #212427;
     /* ---------------------The strike out a todo when checked-------------------------- */
     .todo-item.done .todo-content input {
         text-decoration: line-through;
+        opacity: 0.5;
     }
 
     footer{
