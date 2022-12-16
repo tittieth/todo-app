@@ -32,6 +32,7 @@ const activeBtn = document.querySelector('#active');
 const allBtn = document.querySelector('#all');
 const clearAllBtn = document.querySelector('#clear-all')
 const todoList = document.querySelector('#todo-list');
+const minDate = year + "-" + month + "-" + tdate;
 
 sortSelect.addEventListener('change', sortTodos);
 completedBtn.addEventListener('click', showCompletedTodos);
@@ -55,7 +56,6 @@ window.addEventListener('load', () => {
       if (tdate < 10) {
           tdate = "0" + tdate;
       }
-    var minDate = year + "-" + month + "-" + tdate;
     document.getElementById("due-date-input").setAttribute("min", minDate);
   }
   disablePastDates();
@@ -90,35 +90,65 @@ window.addEventListener('load', () => {
 // When a todo is checked it will move down on the list
 function moveToEndOfArray() {
   todos.sort((todos1, todos2) => {
-    return todos1.done > todos2.done;
+  if (todos1.done < todos2.done) {
+    return -1;
+  }
+  if (todos1.done > todos2.done) {
+    return 1;
+  }
+  return 0;
   });
 }
 
 // To sort by duedate
 function sortByDueDate() {
   todos.sort((todos1, todos2) => {
-    return todos1.dueDate > todos2.dueDate;
+  if (todos1.dueDate < todos2.dueDate) {
+    return -1;
+  }
+  if (todos1.dueDate > todos2.dueDate) {
+    return 1;
+  }
+  return 0;
   });
 }
 
 // To sort by the date it was created
 function sortByDate() {
   todos.sort((todos1, todos2) => {
-    return todos1.createdAt > todos2.createdAt;
+  if (todos1.createdAt < todos2.createdAt) {
+    return -1;
+  }
+  if (todos1.createdAt > todos2.createdAt) {
+    return 1;
+  }
+  return 0;
   });
 }
 
 // To sort by name
 function sortByName() {
   todos.sort((todos1, todos2) => {
-    return todos1.content.toLowerCase() > todos2.content.toLowerCase();
+  if (todos1.content.toLowerCase() < todos2.content.toLowerCase()) {
+    return -1;
+  }
+  if (todos1.content.toLowerCase() > todos2.content.toLowerCase()) {
+    return 1;
+  }
+  return 0;
   });
 }
 
 // To sort by category
 function sortByCategory() {
   todos.sort((todos1, todos2) => {
-    return todos1.category > todos2.category;
+  if (todos1.category < todos2.category) {
+    return -1;
+  }
+  if (todos1.category > todos2.category) {
+    return 1;
+  }
+  return 0;
   });
 }
 
@@ -137,6 +167,8 @@ function sortTodos() {
   }
   displayTodos(todos);
 }
+console.log(sortSelect);
+console.log(sortTodos);
 
 // Prints out the users todos
 function displayTodos(arr) {
@@ -260,5 +292,4 @@ function clearAllTodos() {
   countTodos(todos);
 }
 
-console.log(clearAllTodos);
 console.table(todos);

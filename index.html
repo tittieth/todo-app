@@ -16,7 +16,7 @@
   <main>
     <section class="greeting">
       <h1 class="title">
-        Hello, <input type="text" id="name" placeholder="Name here">
+        Hello, <input aria-label="Name input" type="text" id="name" placeholder="Name here">
       </h1>
     </section>
 
@@ -25,7 +25,7 @@
       <form id="new-todo-form">
         <div class="todo-input">
           <input type="text" name="content" id="content" placeholder="e.g. Dinner with friends" required>
-          <input type="date" name="dueDate" id="due-date-input" class="due-date">
+          <input type="date" aria-label="date input" name="dueDate" id="due-date-input" class="due-date">
         </div>
 
             <!-- Customer icon by Icons8 -->
@@ -37,7 +37,7 @@
               <span><img src="public/icon-personal.png" alt="icon for category personal" width="30" height="30"></span>
               <p>Personal</p>
             </div>
-            <input type="radio" name="category" id="category1" value="personal">
+            <input type="radio" name="category" id="category1" value="personal" aria-label="category personal">
           </div>
 
           <div class="options-div">
@@ -45,7 +45,7 @@
               <div><img src="public/icon-kids.png" alt="icon with a teddybear for category kids" width="30" height="30"></div>
               <p>Kids</p>
             </div>
-            <input type="radio" name="category" id="category2" value="kids">
+            <input type="radio" name="category" id="category2" value="kids" aria-label="category kids">
           </div>
 
           <div class="options-div">
@@ -53,7 +53,7 @@
               <div><img src="public/icon-job.png" alt="icon with a briefcase for category job" width="30" height="30"></div>
               <p>Job</p>
             </div>
-            <input type="radio" name="category" id="category3" value="job">
+            <input type="radio" name="category" id="category3" value="job" aria-label="category job">
           </div>
 
           <div class="options-div">
@@ -61,11 +61,12 @@
               <div><img src="public/icon-other.png" alt="icon with a list for category other" width="30" height="30"></div>
               <p>Other</p>
             </div>
-            <input type="radio" name="category" id="category4" value="other">
+            <input type="radio" name="category" id="category4" value="other" aria-label="category other">
           </div>
         </div>
-
-        <input type="submit" value="Add Todo">
+        <button class="submit-button" aria-label="button add todo">
+          <input type="submit" value="Add Todo">
+        </button>
       </form>
     </section>
 
@@ -92,12 +93,12 @@
           <span id="items-left"></span>
         </div>
         <div class="filter">
-          <button type="button" id="all" class="on">All</button>
-          <button type="button" id="active">Active</button>
-          <button type="button" id="completed">Completed</button>
+          <button type="button" id="all" class="on" aria-label="button show all todos">All</button>
+          <button type="button" id="active" aria-label="button show active todos">Active</button>
+          <button type="button" id="completed" aria-label="button show completed todos">Completed</button>
         </div>
         <div class="right-corner">
-          <button type="button" id="clear-all">Clear All</button>
+          <button type="button" id="clear-all" aria-label="button clear all todos">Clear All</button>
         </div>
     </footer>
   </main>

@@ -14,7 +14,7 @@ $dark-grey: #212427;
 
     main {
         max-width: 600px;
-        border: 1px solid black;
+        border: 1px solid darkgoldenrod;
         margin: auto;
         background-image: linear-gradient(to bottom, #e7b7a0, #e9b598, #eab48f, #eab386, #e9b37d, #e9b782, #eabb86, #eabf8b, #ecc99f, #eed2b4, #efdcc8, #efe6dd);
         background-attachment: fixed;
@@ -69,16 +69,18 @@ $dark-grey: #212427;
         background-size: cover;
         color: transparent;
         opacity: 1;
-        display: block;
-        width: 25px;
-        height: 25px;
+        width: 35px;
+        height: 30px;
+        margin-right: 20px;
         border-width: thin;
     }
 
 /* ---------------------The create todo input-------------------------- */
     .create-todo input[type="text"] {
         display: block;
+        width: 100%;
         font-size: 1.125rem;
+        padding: 0.9rem 1rem;
     }
 
     .todo-input {
@@ -86,7 +88,6 @@ $dark-grey: #212427;
         width: 100%;
         align-items: center;
         justify-content: space-between;
-        padding: 0.5rem 1rem;
         border-radius: 0.6rem;
         background-color: $input-color;
     }
@@ -125,7 +126,7 @@ $dark-grey: #212427;
     }
 
 /* ---------------------The submit button for the todo -------------------------- */
-    .create-todo input[type="submit"] {
+    .submit-button {
         display: block;
         width: 100%;
         padding: 0.8rem 1.5rem;
@@ -136,7 +137,7 @@ $dark-grey: #212427;
         border-radius: 0.8rem;
     }
 
-    .create-todo input[type="submit"]:hover {
+    .submit-button:hover {
         opacity: 0.75;
     }
 
@@ -148,6 +149,7 @@ $dark-grey: #212427;
         justify-content: space-between;
         background-color: $input-color;
         padding: 0.8rem;
+        margin: 20px 0;
         border-radius: 0.8rem;
     }
 
@@ -196,6 +198,7 @@ $dark-grey: #212427;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin: 1rem 0;
         font-size: 0.8rem;
         background-color: $golden;
         border-radius: 0.8rem;
@@ -249,12 +252,12 @@ $dark-grey: #212427;
     /* -----Hide Calendar Icon In Chrome----- */
     input[type="date"]::-webkit-inner-spin-button,
     input[type="date"]::-webkit-calendar-picker-indicator,
-    input[type=date]::-webkit-datetime-edit-text,
-    input[type=date]::-webkit-datetime-edit-month-field,
-    input[type=date]::-webkit-datetime-edit-day-field,
-    input[type=date]::-webkit-datetime-edit-year-field {
+    input[type="date"]::-webkit-datetime-edit-text,
+    input[type="date"]::-webkit-datetime-edit-month-field,
+    input[type="date"]::-webkit-datetime-edit-day-field,
+    input[type="date"]::-webkit-datetime-edit-year-field {
     opacity: 0;
     color: transparent;
-    -webkit-appearance: none;
+    appearance: none;
     }
 }
