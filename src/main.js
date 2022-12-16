@@ -30,12 +30,14 @@ const sortSelect = document.querySelector('#sort');
 const completedBtn = document.querySelector('#completed');
 const activeBtn = document.querySelector('#active');
 const allBtn = document.querySelector('#all');
+const clearAllBtn = document.querySelector('#clear-all')
 const todoList = document.querySelector('#todo-list');
 
 sortSelect.addEventListener('change', sortTodos);
 completedBtn.addEventListener('click', showCompletedTodos);
 activeBtn.addEventListener('click', showActiveTodos);
 allBtn.addEventListener('click', showAllTodos);
+clearAllBtn.addEventListener('click', clearAllTodos);
 
 window.addEventListener('load', () => {
   // Saves the users nameinput in localstorage and convert it to uppercase
@@ -78,10 +80,10 @@ window.addEventListener('load', () => {
     e.target.reset();
 
     moveToEndOfArray();
-    DisplayTodos(todos);
+    displayTodos(todos);
     countTodos(todos);
   }
-  DisplayTodos(todos);
+  displayTodos(todos);
   countTodos(todos);
 })
 
@@ -133,11 +135,11 @@ function sortTodos() {
   } else if (sortValue === 'category') {
     sortByCategory();
   }
-  DisplayTodos(todos);
+  displayTodos(todos);
 }
 
 // Prints out the users todos
-function DisplayTodos(arr) {
+function displayTodos(arr) {
   todoList.innerHTML = '';
 
   arr.forEach(todo => {
@@ -194,7 +196,7 @@ function DisplayTodos(arr) {
     input.addEventListener('click', (e) => {
       todo.done = e.target.checked;
       moveToEndOfArray();
-      DisplayTodos(todos);
+      displayTodos(todos);
       localStorage.setItem('todos', JSON.stringify(todos));
 
       if (todo.done) {
@@ -222,26 +224,26 @@ function DisplayTodos(arr) {
     function deleteTodo (e) {
       todos = todos.filter(t => t != todo);
       localStorage.setItem(('todos'), JSON.stringify(todos));
-      DisplayTodos(todos);
+      displayTodos(todos);
       countTodos(todos);
     }
   })
 }
 
 function showAllTodos() {
-  DisplayTodos(todos);
+  displayTodos(todos);
   countTodos(todos);
 }
 
 function showActiveTodos() {
   const activeTodos = todos.filter(todo => todo.done == false);
-  DisplayTodos(activeTodos);
+  displayTodos(activeTodos);
   countTodos(activeTodos);
 }
 
 function showCompletedTodos() {
   const completedTodos = todos.filter(todo => todo.done == true);
-  DisplayTodos(completedTodos);
+  displayTodos(completedTodos);
   countTodos(completedTodos);
 }
 
@@ -251,4 +253,12 @@ function countTodos(arr) {
   todosLeft.innerHTML = `${arr.length} ${counterString}`;
 }
 
+function clearAllTodos() {
+  todos = [];
+  localStorage.setItem(('todos'), JSON.stringify(todos));
+  displayTodos(todos);
+  countTodos(todos);
+}
+
+console.log(clearAllTodos);
 console.table(todos);

@@ -209,20 +209,21 @@ $dark-grey: #212427;
         display: flex;
     }
 
-    #all, #active, #completed, #clear-completed {
-        font-size: 0.8rem;
+    #all, #active, #completed, #clear-completed, #clear-all {
+        font-size: 1rem;
         padding: 0.5rem 1rem;
         margin: 0.125rem;
         border-radius: 0.8rem;
 
     }
 
-    #all:hover, #active:hover, #completed:hover {
+    #all:hover, #active:hover, #completed:hover, #clear-all:hover {
         opacity: 0.55;
+        background-color: $input-color;
     }
 
-    .left-corner {
-        font-size: 0.8rem;
+    #items-left {
+        font-size: 1rem;
     }
 
     #sort {
