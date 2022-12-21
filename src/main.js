@@ -10,11 +10,12 @@ import './style/style.scss';
 [X] Ska kunna sorteras efter slutdatum
 [X] Kunna sorteras på datum när de las till
 [X] Klara todos ska lägga sig sist i listan
-[] När de passerat deadline ska något hända (annan färg eller text?)
-[] Deadline inom 5 dagar ska visas med text/färg
+[X] När de passerat deadline ska något hända (annan färg eller text?)
+[X] Deadline inom 5 dagar ska visas med text/färg
 */
 
 // Have been using a video from Tyler Potts for help to create this todo-app
+// https://www.youtube.com/watch?v=6eFwtaZf6zc
 
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
 const newTodoForm = document.querySelector('#new-todo-form');
@@ -34,44 +35,38 @@ const clearAllBtn = document.querySelector('#clear-all');
 const todoList = document.querySelector('#todo-list');
 const minDate = `${year}-${month}-${day}`;
 
-window.addEventListener('load', () => {
-  // Saves the users nameinput in localstorage and convert it to uppercase
-  nameInput.value = username.toUpperCase();
+// Saves the users nameinput in localstorage and convert it to uppercase
+nameInput.value = username.toUpperCase();
 
-  nameInput.addEventListener('change', (e) => {
-    localStorage.setItem('username', `${e.target.value}!`);
-  });
-
-  newTodoForm.addEventListener('submit', addNewTodo);
-
-  function addNewTodo(e) {
-    e.preventDefault();
-
-    const todo = {
-      content: e.target.elements.content.value,
-      dueDate: e.target.elements.dueDate.value,
-      category: e.target.elements.category.value,
-      done: false,
-      createdAt: new Date().getTime(),
-    };
-
-    todos.push(todo);
-
-    localStorage.setItem('todos', JSON.stringify(todos));
-
-    e.target.reset();
-
-    moveToEndOfArray();
-    displayTodos(todos);
-    countTodos(todos);
-  }
-  displayTodos(todos);
-  countTodos(todos);
+nameInput.addEventListener('change', (e) => {
+  localStorage.setItem('username', `${e.target.value}!`);
 });
+
+function addNewTodo(e) {
+  e.preventDefault();
+
+  const todo = {
+    content: e.target.elements.content.value,
+    dueDate: e.target.elements.dueDate.value,
+    category: e.target.elements.category.value,
+    done: false,
+    createdAt: new Date().getTime(),
+  };
+
+  todos.push(todo);
+
+  localStorage.setItem('todos', JSON.stringify(todos));
+
+  e.target.reset();
+
+  displayTodos(todos);
+}
+displayTodos(todos);
+countTodos(todos);
 
 // To disable past dates in the calender
 function disablePastDates() {
-  document.getElementById('due-date-input').setAttribute('min', minDate);
+  document.querySelector('#due-date-input').setAttribute('min', minDate);
 
   if (month < 10) {
     month = `0${month}`;
@@ -202,20 +197,17 @@ function displayTodos(arr) {
     edit.classList.add('edit');
     deleteButton.classList.add('delete');
 
-    const today = new Date();
     const dueDates = new Date(todo.dueDate);
-    const dueIn5Days = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 5);
+    // eslint-disable-next-line max-len
+    const dueIn5Days = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate() + 5);
 
-    if (dueDates < today) {
-      console.log('tiden är ute');
-      dueDate.classList.add('deadline-passed');
+    if (dueDates < todayDate) {
+      todoItem.classList.add('deadline-passed');
     } else if (dueDates <= dueIn5Days) {
-      console.log('5 dagar eller mindre kvar');
-      dueDate.classList.add('deadline-soon');
+      todoItem.classList.add('deadline-soon');
     }
 
     dueDate.innerHTML = todo.dueDate;
-
     content.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
     edit.innerHTML = 'Edit';
     deleteButton.innerHTML = 'Delete';
@@ -243,18 +235,21 @@ function displayTodos(arr) {
       }
     });
 
+    const todoInput = content.querySelector('input');
+
     function editTodo() {
-      const todoInput = content.querySelector('input');
       todoInput.removeAttribute('readonly');
       todoInput.focus();
-      todoInput.addEventListener('blur', (e) => {
-        todoInput.setAttribute('readonly', true);
-        todo.content = e.target.value;
-        localStorage.setItem('todos', JSON.stringify(todos));
-      });
+    }
+
+    function saveEditedTodo(e) {
+      todoInput.setAttribute('readonly', true);
+      todo.content = e.target.value;
+      localStorage.setItem('todos', JSON.stringify(todos));
     }
 
     edit.addEventListener('click', editTodo);
+    todoInput.addEventListener('blur', saveEditedTodo);
 
     function deleteTodo() {
       todos = todos.filter((t) => t !== todo);
@@ -264,8 +259,6 @@ function displayTodos(arr) {
     }
 
     deleteButton.addEventListener('click', deleteTodo);
-
-    // Testar en annan Funktion för att kolla hur många dagar det är till duedate
   });
 }
 
@@ -294,11 +287,12 @@ function countTodos(arr) {
 
 function clearAllTodos() {
   todos = [];
-  localStorage.setItem(('todos'), JSON.stringify(todos));
+  localStorage.setItem('todos', JSON.stringify(todos));
   displayTodos(todos);
   countTodos(todos);
 }
 
+newTodoForm.addEventListener('submit', addNewTodo);
 sortSelect.addEventListener('change', sortTodos);
 completedBtn.addEventListener('click', showCompletedTodos);
 activeBtn.addEventListener('click', showActiveTodos);

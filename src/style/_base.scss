@@ -128,6 +128,7 @@ $dark-grey: #212427;
 /* ---------------------The submit button for the todo -------------------------- */
     .submit-button {
         display: block;
+        text-align: center;
         width: 100%;
         padding: 0.8rem 1.5rem;
         margin: 1.5rem 0;
@@ -261,5 +262,15 @@ $dark-grey: #212427;
     height: 40px;
     color: transparent;
     appearance: none;
+    }
+
+    /* If deadline has passed this class is added */
+    .deadline-passed {
+        border: 2px solid red;
+    }
+
+    /* If deadline is within 5 days this class is added */
+    .deadline-soon {
+        border: 2px solid darkgoldenrod;
     }
 }
