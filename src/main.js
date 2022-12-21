@@ -259,10 +259,9 @@ function displayTodos(arr) {
     itemsFromLocalStorage.forEach((todo) => {
       const today = new Date();
       const dueDates = new Date(todo.dueDate);
-      const diffTime = Math.abs(dueDates - today);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      const dueIn5Days = new Date(dueDates.setDate(dueDates.getDay() + 5));
 
-      if (diffDays <= 5 && diffDays > 0) {
+      if (today >= dueIn5Days) {
         console.log('5 dagar eller mindre kvar');
       }
       if (today > dueDates) {
