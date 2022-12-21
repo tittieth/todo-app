@@ -23,7 +23,7 @@ const nameInput = document.querySelector('#name');
 const username = localStorage.getItem('username') || '';
 
 const todayDate = new Date();
-let year = todayDate.getUTCFullYear();
+const year = todayDate.getUTCFullYear();
 let month = todayDate.getMonth() + 1;
 let day = todayDate.getDate();
 
@@ -42,28 +42,6 @@ nameInput.addEventListener('change', (e) => {
   localStorage.setItem('username', `${e.target.value}!`);
 });
 
-function addNewTodo(e) {
-  e.preventDefault();
-
-  const todo = {
-    content: e.target.elements.content.value,
-    dueDate: e.target.elements.dueDate.value,
-    category: e.target.elements.category.value,
-    done: false,
-    createdAt: new Date().getTime(),
-  };
-
-  todos.push(todo);
-
-  localStorage.setItem('todos', JSON.stringify(todos));
-
-  e.target.reset();
-
-  displayTodos(todos);
-}
-displayTodos(todos);
-countTodos(todos);
-
 // To disable past dates in the calender
 function disablePastDates() {
   document.querySelector('#due-date-input').setAttribute('min', minDate);
@@ -74,6 +52,12 @@ function disablePastDates() {
   if (day < 10) {
     day = `0${day}`;
   }
+}
+
+function countTodos(arr) {
+  const todosLeft = document.querySelector('#items-left');
+  const counterString = arr.length === 1 ? 'todo' : 'todos';
+  todosLeft.innerHTML = `${arr.length} ${counterString}`;
 }
 
 // When a todo is checked it will move down on the list
@@ -87,74 +71,6 @@ function moveToEndOfArray() {
     }
     return 0;
   });
-}
-
-// To sort by duedate
-function sortByDueDate() {
-  todos.sort((todos1, todos2) => {
-    if (todos1.dueDate < todos2.dueDate) {
-      return -1;
-    }
-    if (todos1.dueDate > todos2.dueDate) {
-      return 1;
-    }
-    return 0;
-  });
-}
-
-// To sort by the date it was created
-function sortByDate() {
-  todos.sort((todos1, todos2) => {
-    if (todos1.createdAt < todos2.createdAt) {
-      return -1;
-    }
-    if (todos1.createdAt > todos2.createdAt) {
-      return 1;
-    }
-    return 0;
-  });
-}
-
-// To sort by name
-function sortByName() {
-  todos.sort((todos1, todos2) => {
-    if (todos1.content.toLowerCase() < todos2.content.toLowerCase()) {
-      return -1;
-    }
-    if (todos1.content.toLowerCase() > todos2.content.toLowerCase()) {
-      return 1;
-    }
-    return 0;
-  });
-}
-
-// To sort by category
-function sortByCategory() {
-  todos.sort((todos1, todos2) => {
-    if (todos1.category < todos2.category) {
-      return -1;
-    }
-    if (todos1.category > todos2.category) {
-      return 1;
-    }
-    return 0;
-  });
-}
-
-// To sort the todos
-function sortTodos() {
-  const sortValue = sortSelect.value;
-
-  if (sortValue === 'name') {
-    sortByName();
-  } else if (sortValue === 'added-date') {
-    sortByDate();
-  } else if (sortValue === 'due-date') {
-    sortByDueDate();
-  } else if (sortValue === 'category') {
-    sortByCategory();
-  }
-  displayTodos(todos);
 }
 
 // Prints out the users todos
@@ -262,6 +178,97 @@ function displayTodos(arr) {
   });
 }
 
+// Adds a new todo
+function addNewTodo(e) {
+  e.preventDefault();
+
+  const todo = {
+    content: e.target.elements.content.value,
+    dueDate: e.target.elements.dueDate.value,
+    category: e.target.elements.category.value,
+    done: false,
+    createdAt: new Date().getTime(),
+  };
+
+  todos.push(todo);
+
+  localStorage.setItem('todos', JSON.stringify(todos));
+
+  e.target.reset();
+
+  displayTodos(todos);
+}
+displayTodos(todos);
+countTodos(todos);
+
+// To sort by duedate
+function sortByDueDate() {
+  todos.sort((todos1, todos2) => {
+    if (todos1.dueDate < todos2.dueDate) {
+      return -1;
+    }
+    if (todos1.dueDate > todos2.dueDate) {
+      return 1;
+    }
+    return 0;
+  });
+}
+
+// To sort by the date it was created
+function sortByDate() {
+  todos.sort((todos1, todos2) => {
+    if (todos1.createdAt < todos2.createdAt) {
+      return -1;
+    }
+    if (todos1.createdAt > todos2.createdAt) {
+      return 1;
+    }
+    return 0;
+  });
+}
+
+// To sort by name
+function sortByName() {
+  todos.sort((todos1, todos2) => {
+    if (todos1.content.toLowerCase() < todos2.content.toLowerCase()) {
+      return -1;
+    }
+    if (todos1.content.toLowerCase() > todos2.content.toLowerCase()) {
+      return 1;
+    }
+    return 0;
+  });
+}
+
+// To sort by category
+function sortByCategory() {
+  todos.sort((todos1, todos2) => {
+    if (todos1.category < todos2.category) {
+      return -1;
+    }
+    if (todos1.category > todos2.category) {
+      return 1;
+    }
+    return 0;
+  });
+}
+
+// To sort the todos
+function sortTodos() {
+  const sortValue = sortSelect.value;
+
+  if (sortValue === 'name') {
+    sortByName();
+  } else if (sortValue === 'added-date') {
+    sortByDate();
+  } else if (sortValue === 'due-date') {
+    sortByDueDate();
+  } else if (sortValue === 'category') {
+    sortByCategory();
+  }
+  displayTodos(todos);
+}
+
 function showAllTodos() {
   displayTodos(todos);
   countTodos(todos);
@@ -277,12 +284,6 @@ function showCompletedTodos() {
   const completedTodos = todos.filter((todo) => todo.done === true);
   displayTodos(completedTodos);
   countTodos(completedTodos);
-}
-
-function countTodos(arr) {
-  const todosLeft = document.querySelector('#items-left');
-  const counterString = arr.length === 1 ? 'todo' : 'todos';
-  todosLeft.innerHTML = `${arr.length} ${counterString}`;
 }
 
 function clearAllTodos() {
