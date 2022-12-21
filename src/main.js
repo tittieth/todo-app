@@ -202,7 +202,20 @@ function displayTodos(arr) {
     edit.classList.add('edit');
     deleteButton.classList.add('delete');
 
+    const today = new Date();
+    const dueDates = new Date(todo.dueDate);
+    const dueIn5Days = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 5);
+
+    if (dueDates < today) {
+      console.log('tiden är ute');
+      dueDate.classList.add('deadline-passed');
+    } else if (dueDates <= dueIn5Days) {
+      console.log('5 dagar eller mindre kvar');
+      dueDate.classList.add('deadline-soon');
+    }
+
     dueDate.innerHTML = todo.dueDate;
+
     content.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
     edit.innerHTML = 'Edit';
     deleteButton.innerHTML = 'Delete';
@@ -253,21 +266,6 @@ function displayTodos(arr) {
     deleteButton.addEventListener('click', deleteTodo);
 
     // Testar en annan Funktion för att kolla hur många dagar det är till duedate
-
-    const itemsFromLocalStorage = JSON.parse(localStorage.getItem('todos'));
-
-    itemsFromLocalStorage.forEach((todo) => {
-      const today = new Date();
-      const dueDates = new Date(todo.dueDate);
-      const dueIn5Days = new Date(dueDates.setDate(dueDates.getDay() + 5));
-
-      if (today >= dueIn5Days) {
-        console.log('5 dagar eller mindre kvar');
-      }
-      if (today > dueDates) {
-        console.log('tiden är ute');
-      }
-    });
   });
 }
 
