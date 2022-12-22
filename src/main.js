@@ -138,17 +138,24 @@ function displayTodos(arr) {
     actions.appendChild(deleteButton);
     todoList.appendChild(todoItem);
 
+    if (todo.done) {
+      todoItem.classList.add('done');
+      todoItem.classList.remove('deadline-soon');
+      todoItem.classList.remove('deadline-passed');
+    }
+
     input.addEventListener('click', (e) => {
       todo.done = e.target.checked;
-      moveToEndOfArray();
-      displayTodos(todos);
-      localStorage.setItem('todos', JSON.stringify(todos));
 
       if (todo.done) {
         todoItem.classList.add('done');
       } else {
         todoItem.classList.remove('done');
       }
+
+      moveToEndOfArray();
+      displayTodos(todos);
+      localStorage.setItem('todos', JSON.stringify(todos));
     });
 
     const todoInput = content.querySelector('input');
@@ -276,6 +283,7 @@ function showAllTodos() {
 
 function showActiveTodos() {
   const activeTodos = todos.filter((todo) => todo.done === false);
+
   displayTodos(activeTodos);
   countTodos(activeTodos);
 }
