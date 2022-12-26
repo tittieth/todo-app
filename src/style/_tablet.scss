@@ -57,10 +57,13 @@ $dark-grey: #212427;
     .todo-item {
         padding: 1rem;
         font-size: 1.2rem;
+        flex-wrap: nowrap;
     }
 
     input[type="checkbox"] {
-        margin-right: -10px;
+        margin-right: 10px;
+        height: 20px;
+        width: 20px;
       }
 
     .duedate-div {

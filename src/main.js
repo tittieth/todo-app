@@ -117,7 +117,7 @@ function displayTodos(arr) {
     }
 
     dueDate.innerHTML = todo.dueDate;
-    content.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
+    content.innerHTML = `<input type="text" value="${todo.content}" maxlength="18" readonly>`;
     edit.innerHTML = 'Edit';
     deleteButton.innerHTML = 'Delete';
 
