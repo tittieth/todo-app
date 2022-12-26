@@ -7,8 +7,13 @@ $dark-grey: #212427;
 
 @media screen and (min-width: 360px) { 
     body {
-        background-color: seashell;
+        background-image: linear-gradient(to bottom, #e7b7a0, #e9b598, #eab48f, #eab386, #e9b37d, #e9b782, #eabb86, #eabf8b, #ecc99f, #eed2b4, #efdcc8, #efe6dd);
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        position: relative;
         margin: auto;
+        overflow-x: hidden;
     
     }
 
@@ -16,11 +21,7 @@ $dark-grey: #212427;
         max-width: 600px;
         border: 1px solid darkgoldenrod;
         margin: auto;
-        background-image: linear-gradient(to bottom, #e7b7a0, #e9b598, #eab48f, #eab386, #e9b37d, #e9b782, #eabb86, #eabf8b, #ecc99f, #eed2b4, #efdcc8, #efe6dd);
-        background-attachment: fixed;
-        background-position: center;
-        background-size: cover;
-        position: relative;
+        background-color: #e6cdb5;
     }
 
     section {
@@ -41,6 +42,7 @@ $dark-grey: #212427;
     }
 
 /* ------------For all inputfields that are not radiobuttons or checkboxes---------------- */
+   /* stylelint-disable-next-line selector-not-notation */
    input:not([type="radio"]):not([type="checkbox"]), button {
     appearance: none;
     border: none;
@@ -150,13 +152,13 @@ $dark-grey: #212427;
         justify-content: space-between;
         background-color: $input-color;
         padding: 0.8rem;
-        margin: 20px 0;
+        margin: 20px -20px;
         border-radius: 0.8rem;
     }
 
     .duedate-div {
         font-size: 0.8rem;
-        margin-left: -110px;
+        margin-left: -80px;
     }
 
     .category-icon {
@@ -171,6 +173,7 @@ $dark-grey: #212427;
 
     .todo-item .actions button {
         display: block;
+        background-color: $golden;
         font-size: 0.9rem;
         padding: 0.2rem;
         border-radius: 0.25rem;
@@ -181,12 +184,18 @@ $dark-grey: #212427;
     }
 
     .todo-item .actions .edit {
-        background-color: $golden;
         margin-right: 0.4rem;
     }
 
-    .todo-item .actions .delete {
-        background-color: $golden;
+    input[type="checkbox"] {
+        accent-color: $pink;
+        margin-right: 10px;
+        height: 15px;
+        width: 15px;
+      }
+
+    input[type="checkbox"]:checked {
+        transform: scale(1.4);
     }
 
     /* ---------------------The strike out a todo when checked-------------------------- */
@@ -214,18 +223,18 @@ $dark-grey: #212427;
         display: flex;
     }
 
-    #all, #active, #completed, #clear-completed, #clear-all {
+    .all, .active, .completed, .clear-all {
         padding: 0.5rem 1rem;
         margin: 0.125rem;
         border-radius: 0.8rem;
     }
 
-    #all:hover, #active:hover, #completed:hover, #clear-all:hover {
+    .all:hover, .active:hover, .completed:hover, .clear-all:hover {
         opacity: 0.55;
         background-color: $input-color;
     }
 
-    #sort {
+    .sort {
         appearance: none;
         border: none;
         background-color: transparent;
@@ -234,7 +243,7 @@ $dark-grey: #212427;
         cursor: pointer;
     }
 
-    .sort {
+    .sort-options {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -270,6 +279,6 @@ $dark-grey: #212427;
 
     /* If deadline is within 5 days this class is added */
     .deadline-soon {
-        border: 2px solid seagreen;
+        border: 2px solid darkgoldenrod;
     }
 }

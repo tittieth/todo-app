@@ -24,11 +24,11 @@
       <h2>Create a todo</h2>
       <form id="new-todo-form">
         <div class="todo-input">
-          <input type="text" name="content" id="content" placeholder="e.g. Dinner with friends" required>
+          <input type="text" name="content" id="content" placeholder="e.g. Dinner with friends" maxlength="18" required>
           <input type="date" aria-label="date input" name="dueDate" id="due-date-input" class="due-date">
         </div>
 
-            <!-- Customer icon by Icons8 -->
+        <!-- Customer icon by Icons8 -->
 
         <h2>Pick a cetegory</h2>
         <div class="options">
@@ -42,7 +42,8 @@
 
           <div class="options-div">
             <div class="category-info">
-              <div><img src="public/icon-kids.png" alt="icon with a teddybear for category kids" width="30" height="30"></div>
+              <div><img src="public/icon-kids.png" alt="icon with a teddybear for category kids" width="30" height="30">
+              </div>
               <p>Kids</p>
             </div>
             <input type="radio" name="category" id="category2" value="kids" aria-label="category kids">
@@ -50,7 +51,8 @@
 
           <div class="options-div">
             <div class="category-info">
-              <div><img src="public/icon-job.png" alt="icon with a briefcase for category job" width="30" height="30"></div>
+              <div><img src="public/icon-job.png" alt="icon with a briefcase for category job" width="30" height="30">
+              </div>
               <p>Job</p>
             </div>
             <input type="radio" name="category" id="category3" value="job" aria-label="category job">
@@ -58,7 +60,8 @@
 
           <div class="options-div">
             <div class="category-info">
-              <div><img src="public/icon-other.png" alt="icon with a list for category other" width="30" height="30"></div>
+              <div><img src="public/icon-other.png" alt="icon with a list for category other" width="30" height="30">
+              </div>
               <p>Other</p>
             </div>
             <input type="radio" name="category" id="category4" value="other" aria-label="category other">
@@ -70,11 +73,11 @@
       </form>
     </section>
 
-    <div class="sort">
+    <div class="sort-options">
       <h2>Todo list</h2>
       <div class="sort-options">
         <i class="fa-solid fa-sort"></i>
-        <select name="sort" id="sort">
+        <select name="sort" id="sort" class="sort">
           <option value="">Sort by</option>
           <option value="name">Name</option>
           <option value="added-date">Added date</option>
@@ -83,23 +86,23 @@
         </select>
       </div>
     </div>
-      
+
     <section class="todo-list">
       <div class="list" id="todo-list"></div>
     </section>
 
     <footer>
-        <div class="list-status">
-          <span id="items-left"></span>
-        </div>
-        <div class="filter">
-          <button type="button" id="all" class="on">All</button>
-          <button type="button" id="active">Active</button>
-          <button type="button" id="completed">Completed</button>
-        </div>
-        <div class="right-corner">
-          <button type="button" id="clear-all" aria-label="button clear all todos">Clear All</button>
-        </div>
+      <div class="list-status">
+        <span id="items-left"></span>
+      </div>
+      <div class="filter">
+        <button type="button" id="all" class="on all">All</button>
+        <button type="button" id="active" class="active">Active</button>
+        <button type="button" id="completed" class="completed">Completed</button>
+      </div>
+      <div class="right-corner">
+        <button type="button" id="clear-all" class="clear-all" aria-label="button clear all todos">Clear All</button>
+      </div>
     </footer>
   </main>
 

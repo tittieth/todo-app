@@ -24,8 +24,8 @@ const username = localStorage.getItem('username') || '';
 
 const todayDate = new Date();
 const year = todayDate.getUTCFullYear();
-let month = todayDate.getMonth() + 1;
-let day = todayDate.getDate();
+const month = todayDate.getMonth() + 1;
+const day = todayDate.getDate();
 
 const sortSelect = document.querySelector('#sort');
 const completedBtn = document.querySelector('#completed');
@@ -45,13 +45,6 @@ nameInput.addEventListener('change', (e) => {
 // To disable past dates in the calender
 function disablePastDates() {
   document.querySelector('#due-date-input').setAttribute('min', minDate);
-
-  if (month < 10) {
-    month = `0${month}`;
-  }
-  if (day < 10) {
-    day = `0${day}`;
-  }
 }
 
 function countTodos(arr) {
@@ -204,6 +197,7 @@ function addNewTodo(e) {
   e.target.reset();
 
   displayTodos(todos);
+  countTodos(todos);
 }
 displayTodos(todos);
 countTodos(todos);
@@ -276,11 +270,13 @@ function sortTodos() {
   displayTodos(todos);
 }
 
+// Display all todos
 function showAllTodos() {
   displayTodos(todos);
   countTodos(todos);
 }
 
+// Display active todos
 function showActiveTodos() {
   const activeTodos = todos.filter((todo) => todo.done === false);
 
@@ -288,12 +284,14 @@ function showActiveTodos() {
   countTodos(activeTodos);
 }
 
+// Displau completed todos
 function showCompletedTodos() {
   const completedTodos = todos.filter((todo) => todo.done === true);
   displayTodos(completedTodos);
   countTodos(completedTodos);
 }
 
+// To clear all the todos
 function clearAllTodos() {
   todos = [];
   localStorage.setItem('todos', JSON.stringify(todos));
@@ -309,5 +307,3 @@ allBtn.addEventListener('click', showAllTodos);
 clearAllBtn.addEventListener('click', clearAllTodos);
 
 disablePastDates();
-
-console.table(todos);

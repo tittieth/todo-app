@@ -5,16 +5,25 @@ $dark-grey: #212427;
 
 /* styling för tablet */
 @media screen and (min-width: 600px) {
+    body {
+        background-image: linear-gradient(to bottom, #e7b7a0, #e9b598, #eab48f, #eab386, #e9b37d, #e9b782, #eabb86, #eabf8b, #ecc99f, #eed2b4, #efdcc8, #efe6dd);
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+
     main {
-        margin-top: 100px;
+        margin-top: 50px;
+        border-radius: 10px;
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .greeting .title {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
     #due-date-input {
@@ -24,36 +33,42 @@ $dark-grey: #212427;
     }
 
     .create-todo input[type="text"] {
-        font-size: 1.2rem;
-        padding: 1.3rem 1rem;
+        font-size: 1rem;
+        padding: 1.1rem 1rem;
     }
 
     .create-todo .options .options-div {
-        padding: 1.5rem;
+        padding: 1.3rem;
     }
 
     input[type="radio"] {
+        /* stylelint-disable-next-line property-no-vendor-prefix */
         -ms-transform: scale(1.5); /* IE 9 */
+        /* stylelint-disable-next-line property-no-vendor-prefix */
         -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
         transform: scale(1.5);
       }
 
     .submit-button {
-        padding: 1.3rem 1.5rem;
+        padding: 1.2rem 1.5rem;
         font-size: 1.3rem;
     }
 
     .todo-item {
-        padding: 1.1rem;
+        padding: 1rem;
         font-size: 1.2rem;
     }
+
+    input[type="checkbox"] {
+        margin-right: -10px;
+      }
 
     .duedate-div {
         font-size: 1rem;
     }
 
     .todo-item .actions button {
-        font-size: 1.1rem;
+        font-size: 1rem;
         padding: 0.3rem;
     }
 
@@ -62,7 +77,7 @@ $dark-grey: #212427;
     }
 
     .category-info {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     footer{
@@ -71,6 +86,6 @@ $dark-grey: #212427;
     }
 
     #sort {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
   }
