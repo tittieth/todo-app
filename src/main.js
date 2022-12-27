@@ -35,8 +35,8 @@ const clearAllBtn = document.querySelector('#clear-all');
 const todoList = document.querySelector('#todo-list');
 const minDate = `${year}-${month}-${day}`;
 
-// Saves the users nameinput in localstorage and convert it to uppercase
-nameInput.value = username.toUpperCase();
+// Saves the users nameinput in localstorage
+nameInput.value = username;
 
 nameInput.addEventListener('change', (e) => {
   localStorage.setItem('username', `${e.target.value}!`);
@@ -66,6 +66,10 @@ function moveToEndOfArray() {
   });
 }
 
+function saveData() {
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
+
 // Prints out the users todos
 function displayTodos(arr) {
   todoList.innerHTML = '';
@@ -87,16 +91,16 @@ function displayTodos(arr) {
     input.checked = todo.done;
 
     if (todo.category === 'personal') {
-      category.innerHTML = '<img src="public/icon-personal.png"/>';
+      category.classList.add('category-personal');
     }
     if (todo.category === 'kids') {
-      category.innerHTML = '<img src="public/icon-kids.png"/>';
+      category.classList.add('category-kids');
     }
     if (todo.category === 'job') {
-      category.innerHTML = '<img src="public/icon-job.png"/>';
+      category.classList.add('category-job');
     }
     if (todo.category === 'other') {
-      category.innerHTML = '<img src="public/icon-other.png"/>';
+      category.classList.add('category-other');
     }
 
     content.classList.add('todo-content');
@@ -117,7 +121,7 @@ function displayTodos(arr) {
     }
 
     dueDate.innerHTML = todo.dueDate;
-    content.innerHTML = `<input type="text" value="${todo.content}" maxlength="18" readonly>`;
+    content.innerHTML = `<input type="text" value="${todo.content}" maxlength="25" readonly>`;
     edit.innerHTML = 'Edit';
     deleteButton.innerHTML = 'Delete';
 
@@ -148,7 +152,7 @@ function displayTodos(arr) {
 
       moveToEndOfArray();
       displayTodos(todos);
-      localStorage.setItem('todos', JSON.stringify(todos));
+      saveData();
     });
 
     const todoInput = content.querySelector('input');
@@ -161,7 +165,7 @@ function displayTodos(arr) {
     function saveEditedTodo(e) {
       todoInput.setAttribute('readonly', true);
       todo.content = e.target.value;
-      localStorage.setItem('todos', JSON.stringify(todos));
+      saveData();
     }
 
     edit.addEventListener('click', editTodo);
@@ -169,7 +173,7 @@ function displayTodos(arr) {
 
     function deleteTodo() {
       todos = todos.filter((t) => t !== todo);
-      localStorage.setItem(('todos'), JSON.stringify(todos));
+      saveData();
       displayTodos(todos);
       countTodos(todos);
     }
@@ -192,7 +196,7 @@ function addNewTodo(e) {
 
   todos.push(todo);
 
-  localStorage.setItem('todos', JSON.stringify(todos));
+  saveData();
 
   e.target.reset();
 
@@ -294,7 +298,7 @@ function showCompletedTodos() {
 // To clear all the todos
 function clearAllTodos() {
   todos = [];
-  localStorage.setItem('todos', JSON.stringify(todos));
+  saveData();
   displayTodos(todos);
   countTodos(todos);
 }

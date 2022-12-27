@@ -5,7 +5,7 @@ $dark-grey: #212427;
 
 /* ---------styling for mobile------------------- */
 
-@media screen and (min-width: 360px) { 
+@media screen and (min-width: 340px) { 
     body {
         background-image: linear-gradient(to bottom, #e7b7a0, #e9b598, #eab48f, #eab386, #e9b37d, #e9b782, #eabb86, #eabf8b, #ecc99f, #eed2b4, #efdcc8, #efe6dd);
         background-attachment: fixed;
@@ -52,6 +52,9 @@ $dark-grey: #212427;
    }
 
 /* ---------------------The greetingsection with nameinput-------------------------- */
+    .name {
+        text-transform: uppercase;
+    }
 
     .greeting .title {
         font-size: 1.5rem;
@@ -234,20 +237,22 @@ $dark-grey: #212427;
         background-color: $input-color;
     }
 
-    .sort {
-        appearance: none;
-        border: none;
-        background-color: transparent;
-        font-size: 1.2rem;
-        color: $dark-grey;
-        cursor: pointer;
-    }
-
     .sort-options {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 10px 20px 0;
+    }
+
+    .sort {
+        appearance: none;
+        border: none;
+        margin-left: 5px;
+        margin-right: -20px;
+        background-color: transparent;
+        font-size: 1.2rem;
+        color: $dark-grey;
+        cursor: pointer;
     }
 
     .sort h2 {
@@ -281,4 +286,26 @@ $dark-grey: #212427;
     .deadline-soon {
         border: 2px solid darkgoldenrod;
     }
+
+    .category-personal, .category-kids, .category-job, .category-other {
+        display: block;
+        width: 30px;
+        height: 30px;
+    }
+
+    .category-personal {
+        background-image: url("icon-personal.png");
+      }
+
+      .category-kids {
+        background-image: url("icon-kids.png");
+      }
+
+      .category-job {
+        background-image: url("icon-job.png");
+      }
+
+      .category-other {
+        background-image: url("icon-other.png");
+      }
 }
