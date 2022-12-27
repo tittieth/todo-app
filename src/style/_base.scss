@@ -69,7 +69,7 @@ $dark-grey: #212427;
 
     /* ---------the dateinput with the calendericon------------------- */
     #due-date-input {
-        background-image: url('/public/icons8-calendar-64.png');
+        background-image: url('/icons8-calendar-64.png');
         background-repeat: no-repeat;
         background-size: cover;
         color: transparent;
@@ -294,18 +294,18 @@ $dark-grey: #212427;
     }
 
     .category-personal {
-        background-image: url("/public/icon-personal.png");
+        background-image: url("/icon-personal.png");
       }
 
       .category-kids {
-        background-image: url("/public/icon-kids.png");
+        background-image: url("/icon-kids.png");
       }
 
       .category-job {
-        background-image: url("/public/icon-job.png");
+        background-image: url("/icon-job.png");
       }
 
       .category-other {
-        background-image: url("/public/icon-other.png");
+        background-image: url("/icon-other.png");
       }
 }
