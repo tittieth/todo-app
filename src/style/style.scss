@@ -1,8 +1,7 @@
-@use "utils/a11y"; // Om det inte funkar, byt @use mot @import
+@use "utils/a11y";
 @use "vendor/reset";
 @use "base";
 @use "tablet";
-@use "desktop";
 
 $base: #faeee7;
 $pink: #E7B7A0;

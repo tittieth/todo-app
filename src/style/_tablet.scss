@@ -3,7 +3,7 @@ $pink: #E7B7A0;
 $golden: #E6B370;
 $dark-grey: #212427;
 
-/* styling för tablet */
+/* styling for tablet and wider  */
 @media screen and (min-width: 600px) {
     body {
         background-image: linear-gradient(to bottom, #e7b7a0, #e9b598, #eab48f, #eab386, #e9b37d, #e9b782, #eabb86, #eabf8b, #ecc99f, #eed2b4, #efdcc8, #efe6dd);
@@ -22,15 +22,21 @@ $dark-grey: #212427;
         font-size: 1.4rem;
     }
 
+/* ---------------------The greetingsection with nameinput-------------------------- */
+
     .greeting .title {
         font-size: 1.6rem;
     }
+
+/* ---------the dateinput with the calendericon------------------- */
 
     #due-date-input {
         width: 60px;
         height: 50px;
         margin-right: 25px;
     }
+
+/* ---------------------The create todo input-------------------------- */
 
     .create-todo input[type="text"] {
         font-size: 1rem;
@@ -40,6 +46,8 @@ $dark-grey: #212427;
     .create-todo .options .options-div {
         padding: 1.3rem;
     }
+
+/* ---------------------The section with categorys-------------------------- */
 
     input[type="radio"] {
         /* stylelint-disable-next-line property-no-vendor-prefix */
@@ -53,6 +61,18 @@ $dark-grey: #212427;
         padding: 1.2rem 1.5rem;
         font-size: 1.3rem;
     }
+
+    .category-info {
+        font-size: 1.2rem;
+    }
+
+/* ---------------------sorting the todos-------------------------- */
+
+    .sort {
+        font-size: 1.4rem;
+    }
+
+/* ---------------------The section with the todos-------------------------- */
 
     .todo-item {
         padding: 1rem;
@@ -70,6 +90,8 @@ $dark-grey: #212427;
         font-size: 1rem;
     }
 
+ /* ---------------------The edit and delete buttons-------------------------- */
+
     .todo-item .actions button {
         font-size: 1rem;
         padding: 0.3rem;
@@ -79,16 +101,10 @@ $dark-grey: #212427;
         margin-right: 1rem;
     }
 
-    .category-info {
-        font-size: 1.2rem;
-    }
+ /* ---------------------The footer with filter options-------------------------- */
 
     footer{
         font-size: 1.2rem;
         padding: 0 0.4rem;
-    }
-
-    #sort {
-        font-size: 1.4rem;
     }
   }

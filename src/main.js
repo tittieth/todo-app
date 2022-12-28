@@ -17,6 +17,10 @@ import './style/style.scss';
 // Have been using a video from Tyler Potts for help to create this todo-app
 // https://www.youtube.com/watch?v=6eFwtaZf6zc
 
+/** *****************************************************************************
+ * -------------------Variables--------------------------
+ ******************************************************************************** */
+
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
 const newTodoForm = document.querySelector('#new-todo-form');
 const nameInput = document.querySelector('#name');
@@ -35,6 +39,10 @@ const clearAllBtn = document.querySelector('#clear-all');
 const todoList = document.querySelector('#todo-list');
 const minDate = `${year}-${month}-${day}`;
 
+/** *****************************************************************************
+ * ----------------------------Functions----------------------------------------
+ ******************************************************************************** */
+
 // Saves the users nameinput in localstorage
 nameInput.value = username;
 
@@ -47,6 +55,7 @@ function disablePastDates() {
   document.querySelector('#due-date-input').setAttribute('min', minDate);
 }
 
+// count the todos
 function countTodos(arr) {
   const todosLeft = document.querySelector('#items-left');
   const counterString = arr.length === 1 ? 'todo' : 'todos';
@@ -66,11 +75,12 @@ function moveToEndOfArray() {
   });
 }
 
+// To save data to localstorage
 function saveData() {
   localStorage.setItem('todos', JSON.stringify(todos));
 }
 
-// Prints out the users todos
+// Prints out the todos
 function displayTodos(arr) {
   todoList.innerHTML = '';
 
@@ -86,6 +96,8 @@ function displayTodos(arr) {
     const actions = document.createElement('div');
     const edit = document.createElement('button');
     const deleteButton = document.createElement('button');
+
+    label.setAttribute('aria-label', 'check when done');
 
     input.type = 'checkbox';
     input.checked = todo.done;
@@ -121,7 +133,7 @@ function displayTodos(arr) {
     }
 
     dueDate.innerHTML = todo.dueDate;
-    content.innerHTML = `<input type="text" value="${todo.content}" maxlength="25" readonly>`;
+    content.innerHTML = `<input type="text" value="${todo.content}" maxlength="25" aria-label="Your todo" readonly>`;
     edit.innerHTML = 'Edit';
     deleteButton.innerHTML = 'Delete';
 
@@ -182,7 +194,7 @@ function displayTodos(arr) {
   });
 }
 
-// Adds a new todo
+// Add new todos
 function addNewTodo(e) {
   e.preventDefault();
 
@@ -205,6 +217,10 @@ function addNewTodo(e) {
 }
 displayTodos(todos);
 countTodos(todos);
+
+/** *****************************************************************************
+ * -------------------Functions for sorting the todos---------------------------
+ ******************************************************************************** */
 
 // To sort by duedate
 function sortByDueDate() {
@@ -274,6 +290,10 @@ function sortTodos() {
   displayTodos(todos);
 }
 
+/** ********************************************************
+ * -------------------sorting end---------------------------
+ ************************************************************ */
+
 // Display all todos
 function showAllTodos() {
   displayTodos(todos);
@@ -288,7 +308,7 @@ function showActiveTodos() {
   countTodos(activeTodos);
 }
 
-// Displau completed todos
+// Display completed todos
 function showCompletedTodos() {
   const completedTodos = todos.filter((todo) => todo.done === true);
   displayTodos(completedTodos);

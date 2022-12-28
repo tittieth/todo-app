@@ -80,6 +80,20 @@ $dark-grey: #212427;
         border-width: thin;
     }
 
+     /* -----Hide Calendar Icon In Chrome----- */
+     input[type="date"]::-webkit-inner-spin-button,
+     input[type="date"]::-webkit-calendar-picker-indicator,
+     input[type="date"]::-webkit-datetime-edit-text,
+     input[type="date"]::-webkit-datetime-edit-month-field,
+     input[type="date"]::-webkit-datetime-edit-day-field,
+     input[type="date"]::-webkit-datetime-edit-year-field {
+     opacity: 0;
+     width: 50px;
+     height: 40px;
+     color: transparent;
+     appearance: none;
+     }
+
 /* ---------------------The create todo input-------------------------- */
     .create-todo input[type="text"] {
         display: block;
@@ -147,97 +161,9 @@ $dark-grey: #212427;
         opacity: 0.75;
     }
 
-    /* ---------------------The section with the todos-------------------------- */
-    .todo-item {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        background-color: $input-color;
-        padding: 0.8rem;
-        margin: 20px -20px;
-        border-radius: 0.8rem;
-    }
+     /* ---------------------sorting the todos-------------------------- */
 
-    .duedate-div {
-        font-size: 0.8rem;
-    }
-
-    .category-icon {
-        margin: 0 0.3rem;
-    }
-
-    /* ---------------------The edit and delete buttons-------------------------- */
-    .todo-item .actions {
-        display: flex;
-        align-items: center;
-    }
-
-    .todo-item .actions button {
-        display: block;
-        background-color: $golden;
-        font-size: 0.9rem;
-        padding: 0.2rem;
-        border-radius: 0.25rem;
-    }
-
-    .todo-item .actions button:hover {
-        opacity: 0.75;
-    }
-
-    .todo-item .actions .edit {
-        margin-right: 0.4rem;
-    }
-
-    input[type="checkbox"] {
-        accent-color: $pink;
-        margin-right: 10px;
-        height: 15px;
-        width: 15px;
-      }
-
-    input[type="checkbox"]:checked {
-        transform: scale(1.4);
-    }
-
-    /* ---------------------The strike out a todo when checked-------------------------- */
-    .todo-item.done .todo-content input {
-        text-decoration: line-through;
-        opacity: 0.5;
-    }
-
-    footer{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 1rem 0;
-        font-size: 0.8rem;
-        background-color: $golden;
-        border-radius: 0.8rem;
-        width: 100%;
-    }
-
-    .list-status {
-        padding-left: 10px;
-    }
-
-    .filter {
-        display: flex;
-    }
-
-    .all, .active, .completed, .clear-all {
-        padding: 0.5rem 1rem;
-        margin: 0.125rem;
-        border-radius: 0.8rem;
-    }
-
-    .all:hover, .active:hover, .completed:hover, .clear-all:hover {
-        opacity: 0.55;
-        background-color: $input-color;
-    }
-
-    .sort-options {
+     .sort-options {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -263,28 +189,36 @@ $dark-grey: #212427;
         color: darkgoldenrod;
     }
 
-    /* -----Hide Calendar Icon In Chrome----- */
-    input[type="date"]::-webkit-inner-spin-button,
-    input[type="date"]::-webkit-calendar-picker-indicator,
-    input[type="date"]::-webkit-datetime-edit-text,
-    input[type="date"]::-webkit-datetime-edit-month-field,
-    input[type="date"]::-webkit-datetime-edit-day-field,
-    input[type="date"]::-webkit-datetime-edit-year-field {
-    opacity: 0;
-    width: 50px;
-    height: 40px;
-    color: transparent;
-    appearance: none;
+    /* ---------------------The section with the todos-------------------------- */
+    .todo-item {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $input-color;
+        padding: 0.8rem;
+        margin: 20px -20px;
+        border-radius: 0.8rem;
     }
 
-    /* If deadline has passed this class is added */
-    .deadline-passed {
-        border: 2px solid red;
+    input[type="checkbox"] {
+        accent-color: $pink;
+        margin-right: 10px;
+        height: 15px;
+        width: 15px;
+      }
+
+    input[type="checkbox"]:checked {
+        transform: scale(1.4);
     }
 
-    /* If deadline is within 5 days this class is added */
-    .deadline-soon {
-        border: 2px solid darkgoldenrod;
+    .duedate-div {
+        font-size: 0.8rem;
+    }
+
+    .category-icon {
+        margin: 0 0.3rem;
     }
 
     .category-personal, .category-kids, .category-job, .category-other {
@@ -308,4 +242,74 @@ $dark-grey: #212427;
       .category-other {
         background-image: url("/icon-other.png");
       }
+
+       /* If deadline has passed this class is added */
+    .deadline-passed {
+        border: 2px solid red;
+    }
+
+    /* If deadline is within 5 days this class is added */
+    .deadline-soon {
+        border: 2px solid darkgoldenrod;
+    }
+
+    /* ---------------------The edit and delete buttons-------------------------- */
+    .todo-item .actions {
+        display: flex;
+        align-items: center;
+    }
+
+    .todo-item .actions button {
+        display: block;
+        background-color: $golden;
+        font-size: 0.9rem;
+        padding: 0.2rem;
+        border-radius: 0.25rem;
+    }
+
+    .todo-item .actions button:hover {
+        opacity: 0.75;
+    }
+
+    .todo-item .actions .edit {
+        margin-right: 0.4rem;
+    }
+
+    /* ---------------------The strike out a todo when checked-------------------------- */
+    .todo-item.done .todo-content input {
+        text-decoration: line-through;
+        opacity: 0.5;
+    }
+
+     /* ---------------------The footer with filter options and todo counter-------------------------- */
+
+    footer{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1rem 0;
+        font-size: 0.8rem;
+        background-color: $golden;
+        border-radius: 0.8rem;
+        width: 100%;
+    }
+
+    .all, .active, .completed, .clear-all {
+        padding: 0.5rem 1rem;
+        margin: 0.125rem;
+        border-radius: 0.8rem;
+    }
+
+    .all:hover, .active:hover, .completed:hover, .clear-all:hover {
+        opacity: 0.55;
+        background-color: $input-color;
+    }
+
+    .list-status {
+        padding-left: 10px;
+    }
+
+    .filter {
+        display: flex;
+    }
 }
