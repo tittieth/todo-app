@@ -25,6 +25,9 @@ let todos = JSON.parse(localStorage.getItem('todos')) || [];
 const newTodoForm = document.querySelector('#new-todo-form');
 const nameInput = document.querySelector('#name');
 const username = localStorage.getItem('username') || '';
+const dueDateCheck = document.querySelector('#due-date-input');
+const checkTodoInput = document.querySelector('#content');
+const errorMsg = document.querySelector('#error-msg');
 
 const todayDate = new Date();
 const year = todayDate.getUTCFullYear();
@@ -206,11 +209,20 @@ function addNewTodo(e) {
     createdAt: new Date().getTime(),
   };
 
+  const getSelectedValue = document.querySelector('input[name="category"]:checked');
+
+  if (getSelectedValue === null || dueDateCheck.value === '' || checkTodoInput.value === 0) {
+    errorMsg.removeAttribute('hidden', '');
+    errorMsg.innerHTML = 'Välj en kategori och ett datum tack!';
+    return;
+  }
+
   todos.push(todo);
 
   saveData();
 
   e.target.reset();
+  errorMsg.setAttribute('hidden', '');
 
   displayTodos(todos);
   countTodos(todos);

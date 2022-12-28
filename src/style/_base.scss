@@ -111,6 +111,10 @@ $dark-grey: #212427;
         background-color: $input-color;
     }
 
+    .error-msg {
+        color: red;
+    }
+
 /* ---------------------The section with categorys-------------------------- */
 
     input[type="radio"] {
@@ -250,7 +254,7 @@ $dark-grey: #212427;
 
     /* If deadline is within 5 days this class is added */
     .deadline-soon {
-        border: 2px solid darkgoldenrod;
+        border: 2px solid seagreen;
     }
 
     /* ---------------------The edit and delete buttons-------------------------- */
