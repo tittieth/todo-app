@@ -213,7 +213,7 @@ function addNewTodo(e) {
 
   if (getSelectedValue === null || dueDateCheck.value === '' || checkTodoInput.value === 0) {
     errorMsg.removeAttribute('hidden', '');
-    errorMsg.innerHTML = 'Välj en kategori och ett datum tack!';
+    errorMsg.innerHTML = 'Add task, category and due date!';
     return;
   }
 

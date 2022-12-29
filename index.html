@@ -26,7 +26,7 @@
       <form id="new-todo-form">
         <div class="todo-input">
           <input type="text" name="content" id="content" placeholder="e.g. Dinner with friends" maxlength="25" required>
-          <input type="date" aria-label="date input" name="dueDate" id="due-date-input" class="due-date">
+          <input type="date" aria-label="date input" name="dueDate" id="due-date-input" class="due-date" required>
         </div>
 
         <!-- Customer icon by Icons8 -->
@@ -35,7 +35,8 @@
         <div class="options">
           <div class="options-div">
             <div class="category-info">
-              <span><img src="public/icon-personal.png" alt="icon for category personal" width="30" height="30" loading="lazy"></span>
+              <span><img src="public/icon-personal.png" alt="icon for category personal" width="30" height="30"
+                  loading="lazy"></span>
               <p>Personal</p>
             </div>
             <label aria-label="category personal">
@@ -45,7 +46,8 @@
 
           <div class="options-div">
             <div class="category-info">
-              <div><img src="public/icon-kids.png" alt="icon with a teddybear for category kids" width="30" height="30" loading="lazy">
+              <div><img src="public/icon-kids.png" alt="icon with a teddybear for category kids" width="30" height="30"
+                  loading="lazy">
               </div>
               <p>Kids</p>
             </div>
@@ -56,7 +58,8 @@
 
           <div class="options-div">
             <div class="category-info">
-              <div><img src="public/icon-job.png" alt="icon with a briefcase for category job" width="30" height="30" loading="lazy">
+              <div><img src="public/icon-job.png" alt="icon with a briefcase for category job" width="30" height="30"
+                  loading="lazy">
               </div>
               <p>Job</p>
             </div>
@@ -67,7 +70,8 @@
 
           <div class="options-div">
             <div class="category-info">
-              <div><img src="public/icon-other.png" alt="icon with a list for category other" width="30" height="30" loading="lazy">
+              <div><img src="public/icon-other.png" alt="icon with a list for category other" width="30" height="30"
+                  loading="lazy">
               </div>
               <p>Other</p>
             </div>
@@ -80,7 +84,6 @@
         <label class="submit-button" aria-label="button add todo">
           <input type="submit" value="Add Todo">
         </label>
-
       </form>
     </section>
 
@@ -115,13 +118,8 @@
         <button type="button" id="clear-all" class="clear-all" aria-label="button clear all todos">Clear All</button>
       </div>
     </footer>
-  </main>
 
-  <!-- TODO
-    - Validera HTML (kopiera den renderade HTML-koden): https://validator.w3.org/#validate_by_input
-    - Kontrollera tillgänglighet: https://www.a11yproject.com/checklist/ & Chrome Lighthouse/Firefox Accessibility Tools
-    - Validera genererade CSS: https://jigsaw.w3.org/css-validator/#validate_by_input
-    -->
+  </main>
   <script type="module" src="/src/main.js"></script>
 </body>
 
