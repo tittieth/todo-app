@@ -265,6 +265,7 @@ $dark-grey: #212427;
 
     .todo-item .actions button {
         display: block;
+        color: $dark-grey;
         background-color: $golden;
         font-size: 0.9rem;
         padding: 0.2rem;
@@ -273,6 +274,11 @@ $dark-grey: #212427;
 
     .todo-item .actions button:hover {
         opacity: 0.75;
+        color: $dark-grey;
+    }
+
+    .todo-item .actions button:visited {
+        color: $dark-grey;
     }
 
     .todo-item .actions .edit {
@@ -302,11 +308,17 @@ $dark-grey: #212427;
         padding: 0.5rem 1rem;
         margin: 0.125rem;
         border-radius: 0.8rem;
+        color: $dark-grey;
     }
 
     .all:hover, .active:hover, .completed:hover, .clear-all:hover {
         opacity: 0.55;
+        color: $dark-grey;
         background-color: $input-color;
+    }
+
+    .all:visited, .active:visited, .completed:visited, .clear-all:visited {
+        color: $dark-grey;
     }
 
     .list-status {
