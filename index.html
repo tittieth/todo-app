@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/ico" href="/fed22d-js-grundkurs-2-todo-tittieth/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6e63925041.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO-APP</title>
+  <script type="module" crossorigin src="/fed22d-js-grundkurs-2-todo-tittieth/assets/index.d83735b6.js"></script>
+  <link rel="stylesheet" href="/fed22d-js-grundkurs-2-todo-tittieth/assets/index.03702b00.css">
+</head>
+
+<body>
+  <main>
+    <section class="greeting">
+      <h1 class="title">
+        Hello, <input aria-label="Name input" type="text" id="name" class="name" placeholder="Name here">
+      </h1>
+    </section>
+
+    <section class="create-todo">
+      <h2>Create a todo</h2>
+      <span id="error-msg" class="error-msg" hidden></span>
+      <form id="new-todo-form">
+        <div class="todo-input">
+          <input type="text" name="content" id="content" placeholder="e.g. Dinner with friends" maxlength="25" required>
+          <input type="date" aria-label="date input" name="dueDate" id="due-date-input" class="due-date" required>
+        </div>
+
+        <!-- Customer icon by Icons8 -->
+
+        <h2>Pick a cetegory</h2>
+        <div class="options">
+          <div class="options-div">
+            <div class="category-info">
+              <span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAEZ0lEQVRYhe2WS2hcVRjHf+feO4/MTDOJJpncIYpKYlOb0hijJVCsgeIiaTFBXBRBF2J9gK0PcOOiURduxKYKggWRulS0D0MWUm1tC7XUTl+2kURNTJNJJs+ZZGbSzOMeF01kZu69melCROh/d7/zP9//z3e+c74Ld/AfQ/zbAtNnqta5FzS34VR2GapxrLJ9ciR3XbudZPJEjxZZjD5uCNkhEA0SagEETBqCQQWlv9Zbflq092RW97iWnJsNp3wR5HNqVnQD7bk5S6rAta96nJVl8y+DeAeoKUKfksj3g/rSZ6L1YBogdjy4B2SvRHxYsT389m0ZCH/3ViNkjwDrSzGbgwFDUbrqOj8aBJD99S7R8ftyIWlNAxN9b7ZLaRwG/LcpvoqogG59Z+9JgCPv1XwhJX3d+6a+WSUodjvHj+5dL6XxrZX4zVSW0PUooYEkoYEkF65FuZnKWqWpkHB04tgbGwEMw/gg7UofzyVYVmDlzC+DaCxcG4skmJ7z0PpwE6pya3sma3Dh8jWqK5eoC3isUg7oenLzak/kwrIClWWxV6zE48kMsws+tjyy6R9xAE1V2NKyidmYl0SyUENQvrFrQ3ii7CUrLVMF5IkebSIeHcei23/5dYG2R9sQwrp1pJScPX+W1qbyvLji8mEsxyO6r6Iu94qCRQXG43PbrMQBNIfbVhxACIGmuUxxYzkOEJiMR7cWrpkMKCgdtgqlPBvCtq8xBJ1FDQiot9qczmQRirMEfSfpjOWNQEhzbpMBKQlq3ioU17p8ohA4VEdRA6qiIewrFSxqACFVf/OzrGvMr5aqKsQWo0UNLC7G0DTbYzDNHvMwEmImGjqEzKRMSy6HOVYIpzMFWL4FADOFAXMPiMxQdmkeI5007a6tcvHXeMRW/M8bYfQq8y1YhRRcWdNAOrRrW1Vgdndl9ZxlgmBNGbMzw4yGp0xro+EpZqZHCNaU2RoQyOOFsbwjkJIHhEBTtYwUQgopzc3U1OAjdP03hkfH8PtuPTix+AIuLU7LQ3fZioOc1GuXflzTgOOPzJfZesdSbL68TUqxxypN1pBEF9I0NzcipQQgIHQuXzpH1pB5T3SePGK/1SywZA/1v+byZpVLufMgMp3g+3PDDI6O4fYIdrR3UheoA2A8MkbfT/0sJ6D+3iBPPnY/gWpvjoq4nlAyLQ0dn5T+PxDue30Dkp+B8sGReQ4eOUEsMWFHz4Pfq7O7q50H76sEiHt9i8+U+xcuiJavpwu5thc2uKN3AEXuBBZPXRwpWRwglpjg1MURgISB0eXxJ7enpdplxV3zpzTYeeDUjaN7t85HE+dBOEGWaEEwH02kFEW0BTs/vgr8YMe0nxwruOepA1f8qkNv0JuG3FqVRKr2ZKniVqtlg9405Fcdem3n/qvFra6Bw+8GXgDo3hf5HKDn1Sd8ydnEoeRyZmvyZrIilUmpAE7NmfW4PVGPSzvjudv7fM+nJ+PFhFex5hEowgjlfq8kfrrU5Hfwv8DflEKWNCwJ4ckAAAAASUVORK5CYII=" alt="icon for category personal" width="30" height="30"
+                  loading="lazy"></span>
+              <p>Personal</p>
+            </div>
+            <label aria-label="category personal">
+              <input type="radio" name="category" id="category1" value="personal">
+            </label>
+          </div>
+
+          <div class="options-div">
+            <div class="category-info">
+              <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAFh0lEQVRYhe2XW2xcVxWGv73POTPj8XhmfIkz4xo7cdwkLQVTGglVIrSRKio5RGpUUSkKclARoRJqnRYJJOiDRR94QahFvJCKW1+oUonUTYjykKpQgiAirVTANHFtx9OM527PxR7P9ezNg+0wN9vxA0JC/aV5WZd//Vpn7b3XwCf4H0P8twskr/Z0uHKmSznkCWWotzqPxOZr/eZOyPQ7E2Z8OfMlJfSoQNyrIQAgIKYE0xJ5KdDu/ZM4MlHdyHEWHCPKob8JesywxXHgSC3nXXVg6tyEo7Mt/QyIHwC924QnNPqlvmDh5+LQ2QpA9krfc6Bf1ogf+x+LfHdHAiIXvnMQ7DeBA3cjtgYfKimf6D/6k2kAfWnYKUZnSo1BciuG6MUXjoD919ri8aVV/jGdomrrutjQQo6ZUKbWdJ9U6lr0wplHAcToTOnMqa//avzU009uKuDbY2Pd42NjnwVYmBw/oLX6HeDb8M+Fs5y/ssDfbhR4bfImmVyReDLP238Jc/lainc/yHLxj6FaSr+Gyehbz38aQGr1I5fTvFIbUDeElpSHtebxqXMT40Km3wT8tf7b0TzB/l4MKcjmTCbfTSKkQNk2Pq+Hzk4PsYVIYyO9Wug39PXTI+LQ2elGZ8sZiFx4fhz0y432/GqFX09OM7B3AIdl1PmU0kQjcR466GPkQHedz/IPUs7MP3vPsVd+1sjZNAP6nQkT9PdbCWt3W7hdFg7LoFi6c9IoFMrryYI9QU9Tnr2aQiBeXOPeRsDCytIjbHLUVosVkA4AIskcan0QM/kyK/kSPb1dvPevZFOeKucBdsdWMl/cVoBEjrYqDmAZEqVsAIaCXUSTK3w4m6TT48LT7qRSrtLutjZLRwmObitAwLBv5ASe4ceaBVgGbociny/S4/fyhQf2MrjLx/7BPtAQjyX4/P09mwoQmuFtBWhNXyXzMdXlWEuSJ7+8j1w6yfxCnPhSlg6Pi/nbccLhKEcP92OZRsu8dfQ1GprfAoFaDf25ZXYuX+bGbJpEqkDZXmYuFMc0JQhNuVAktujB73Pi8zg2E6AbDa0ERGvDKlWb1y/PUa4C0qLT70WaFoODvRQLZUDiajP5+z9vEck4mXo7glYVHCY89fgQTkdtR3TTJdHiWFRvKww2roiZUBafr5fubi+JVIalxUVclqRUqrJ/Tz/KVnwUWqDNYZBeXMTf3UVvj5/00jLT82k+s/8/M6GRM831alB5/8QjXYHFZzp3Ld2xDQ/4WM4mCM3PsqujyMnRPbS3O3BZa9qlIUEatLstTh7dS7CjTDh0i1wmwcGhzvrmSnVxyw5ozZAQmIZZ1UJoobXAsgxOfuXeeiKhKZTLKK3RSmOaAonC6TB4+MEADzdWWWOPBfORpuGqfwtmq6/Zw1Yhm+74nJSx79l28I5vLpxlej5LJlchlS5RUVm0EmgBqWSaXLbEby/N4vdaHBjwMTTgqyskhPiheOoNu1FAy7dAXz9tRaPuD4D7AG7Op3nvRpHdgS6qtk2xUOLWXJhAjxuA+OIqg3v7aWtzYhoGiUSakX0O7t/XtUE5FQyuPrixoGzagTuqDp2thH//whNSqWuA3zINCsUSyVSGlVyOQJeDZ7/2AIZc028rzeWrH3M7VMHj7aBQKGEarg22tNu7/Bwy6wea7uktN6LohTOPajgP+BOLBZRW9Ha7kaJ1mtaaRGoVIQW93W5ApIXmeE9/7JjW+qbjoddf3ZEAWFtMhBTnWf8cO8CUjTr+qWM//WiroLtaSvX101Yk2vYtgXgR2L1NdExo+VKgL/9qq2++IwHjp57+BsArv/nlLwD0ua8asbZ7DivEqBB6P3ptLUcQE5qbaHEpUAxfbTXtm2HL/wWGFu/XqV0j/sP67xP8f+DfZ+I4j99SKiQAAAAASUVORK5CYII=" alt="icon with a teddybear for category kids" width="30" height="30"
+                  loading="lazy">
+              </div>
+              <p>Kids</p>
+            </div>
+            <label aria-label="category kids">
+              <input type="radio" name="category" id="category2" value="kids">
+            </label>
+          </div>
+
+          <div class="options-div">
+            <div class="category-info">
+              <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAEOklEQVRYhe2XT2xUVRTGf+fOvJkC7TBtgc4UEDCVQkwkKq60YBOjsaSEJmrCBhYq4kIRTNzoopGFiTEGjYkRMAYXhkCQ8kdIDBGCkNTYkIA0SoFShc68tkCnf0am8+cdF6X4ZjrtdGqMMeHb3Xe/e77vvnfOuffBffzHkH9boO/MnLKSQW+J4zPrHY9zuLze7nLPe4sJpiebvT1DsVWOaIMgDymEAARsR+gwmGOhWYEfpb45PbbGf8e3wvHpq6AbPBlpAurdMaf0Btr3NfvKZ/RvBnkXmFeA3qvo9urwnS9k5c4UwMCJ6jdBdyjyUfCZyDtFGYgceXsZZFqA2qmYdeFXx5h1C9Z83AGgx2r80nBlJJc0qYHo0W31qs5BYHaR4mOICTSFG3ecAti4LvAVyNE9LQMHxgjGzd7QVFa5YW35IwDdh7bUqjrfTiTe1T3I8dNdHD/dxe/dgxMZCCocih7e+jCAin7gt8wJNyErCY1Sp5J5rn1f8xYx/S1AMF/USG+czusDPL9qMQA/tP6BZXmonjcrHz2govu1bdMKWbmzI3cy7yeIHNm6BXQHwKHvL9FnxxD5m5oYSVPid3tXEiOZrGeqSlUoSOOztVjBRSRjXW/Mb/zks4IG9GSzNzoc6+Zutn+++ywLKyy8pnDBVM32cnMozbyAl9vxDL9FR3j9lScxvlk4yXhPuDS4wF2ikKcPdA/fXm0w90rN5wHHURZX+QsaAFhY6QMgHDR09o4mvZOMA1TZw7GngFNuvslZj8E0uMcKTLdhas7YEdaM18uBQI17nErD0pBvWgaSmZzYmh07rwFVqt3jDEJnX4pkyqHNtrlg35xQ8HzPLdpsm2Ra6ewdwdFxb64698H4s0BwZi56EicxQKLnIpUBC8sDrVfjPPpEgo6rFq1X4nkNWIEEtTUpWn8eZslcP5UBa9z+pmIgagUfIBPvhZ6LAJRYhrplpVzoSFFR4mNJTd5651q/cu1yirplpQjCzRvJXP1IQQOG9PWB89/gTjwjIAgrwhV5hcewpLx00nnFXBmv50Lq3PrVFaFbm8vn3s4i3RrOKt1pQ4xzdFIDqjwogtfjTavIuM/1D6F2OB45O6kB62r6axFZPxgLfGiMPbpMBJ81zT7gat8i8r68tD+Ty8nKgbuEvdq26UA0Gl4LLBfLz1AqSbudKkrcUUF897pneyj05+58vAm3duO7bUuN4/wEBBMjaRynKH2M4e7hJP0zA0MvzC4b+EUe2983ZQMA0SNvPa1wkAmO5cKQflGa5iywG1X1ku/xvbuKMgCjFxMxchBYXqR6ewanaWHjp5cntTiVSNq2yYpEZ7wmyHtAVQG2LWq2h6rju8YupdM2sHFd2csAe1qGvgTQfS967Bnz6xykQUSXoqPXcgRblEuoHAslbpzJl+0TYdL/AnU857LcjgY+Rc6Zfh//a/wF3QWMlmHSd/wAAAAASUVORK5CYII=" alt="icon with a briefcase for category job" width="30" height="30"
+                  loading="lazy">
+              </div>
+              <p>Job</p>
+            </div>
+            <label>
+              <input type="radio" name="category" id="category3" value="job" aria-label="category job">
+            </label>
+          </div>
+
+          <div class="options-div">
+            <div class="category-info">
+              <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAEv0lEQVRYhe2XS2yUVRTHf+frzPQxLW1DW2amlCIUSoOEAkpSqMWiuGhFqEETXBgSIkVjEDFAoiRUWJgYH0DcYOMjxoWBSOUhKwwQCwaEEigjUAcoj85MKTAtnT5n5l4XpdB59bEwxoT/6vvunHv+v5x773fuwBP9x5J/26CtPist6YEpSVmMlSpBHcgs9zYP/d00lmT6aI2ptbO9TImuEGSaBhuAgFcJTQbGYZt13O9SXhMcnJPYY5mtLPot0G8mhKQKKB+ac1QVcO6psWQm+9aCfATkjBB+R6O3O+w9u+WZrwMAHUcc60Dv0MhnGS+6N40JwH3wgxkQ+gUoHA3sEF1ShrF8YuUXTQD6cEGiVLj6IoOGBfAc2lCutaoD0sdoPqh2gSr70h3HAL6rqf5ORB1atbX258GAuHugZf97hVqrfUC6p83Phas9YLaOylVEYQ76KZ2bnWE2Jez3HHh/gf2VL50G6pPeRGkNi42V4OGanweZ4e/q54TLoOqdjTT+2YAKqbDYWfPn0Xj6LADPli2k4eQpUlKt5E92sG/XNioX2gAu2e3dswf3xFDFrEBmcsfbIDMAmprbWfLGRv747ThLlr9Mq9uDIQY5Dtuj+NKXFj96LllcRofPx1/nLmDNmgz0MW7msiK3s64a+CrSy4gc0EdrTKA/HHzvD0JQCfZJE7l59RotrkZuNDm54/bGYgcgPTMTrTViTgQ0ftcRBNkykHuECrT47y8yMMKOmmEYpKSmcq/tLqnWBB486Ke3t49rTS7czTfDE4hQsrgsbEj1+QEmeP3tpcCxYQEMjIok2yxSJpVw/3QtAClWK7mT8tBK0djQQFpWMnmT8xDDYMr0griViJQSKiMBopZAoED1+Qn6WwENQFenn8uNTsQwsOXmYU1LRYyoqSNKNFG0URXQGke/7zr9vuuPyZUiGAhy8WwD3366mfzCYlasXkdvby+eG7eijEpeWBSPwTEiAIKKGhuEA0LBwKOzO7VwGlMLp8ULj5diRABPdNiAnp5TzOadPxIKhMjNzxvWyZKYFMvfHTkStZAGwVsxQB/CCfdavXR3+tEqbqEAmLdgfrQ9hityLKwCgYaVi7S6tzYUNOFrGx+VoOFkPemtn9Oui7iVupZgMBD3GJ4+Xh/Nb6hDwwJozRQRTAmmoBbRorU8nChorci22bjrfgqdnEdSUiI5jvy4x1DryCpqr73LfWJYAPPV4A+hAnNPhy+tWGvZDGAxQYIoWppvMnNZJch6LInmsE9xpNrv+wYsA4+7r4hsk9f3hiJjYzYjfWaN2eNJOQ8U+bsD1F+BV9/dxMUz5wgFQ2RmZzE+JwuX83JMgLSM9IFmtHMblaU2AKfd3j0nVjOKex+4/euG6YZSp4AM790uLri60aNtxygsys/C4mzMZpMvZVznivS0jkaZu7dt1AAAnoPrn9dQB2SMyjkaxSeaqqyJ3qVa6yuWeT/VjgkABi4mYkgdUDRGd2cIVZW3dNffwyKOJpM+s8bs9iRXC7IFmDBCtFe0sd3m6KqNteZjAvj+4+rVAKu27v4GQO95LcGbnPucQipE9HT0wLUcwSuaK2g5bOu9XR9rt8fTsP8LRKQh7H0g8TEiWuoT/a/1D6iNzWnmZNlqAAAAAElFTkSuQmCC" alt="icon with a list for category other" width="30" height="30"
+                  loading="lazy">
+              </div>
+              <p>Other</p>
+            </div>
+            <label aria-label="category other">
+              <input type="radio" name="category" id="category4" value="other">
+            </label>
+          </div>
+        </div>
+
+        <label class="submit-button" aria-label="button add todo">
+          <input type="submit" value="Add Todo">
+        </label>
+      </form>
+    </section>
+
+    <div class="sort-options">
+      <h2>Todo list</h2>
+      <div class="sort-options">
+        <i class="fa-solid fa-sort"></i>
+        <select name="sort" id="sort" class="sort">
+          <option value="">Sort by</option>
+          <option value="name">Name</option>
+          <option value="added-date">Added date</option>
+          <option value="due-date">Due date</option>
+          <option value="category">Category</option>
+        </select>
+      </div>
+    </div>
+
+    <section class="todo-list">
+      <div class="list" id="todo-list"></div>
+    </section>
+
+    <footer>
+      <div class="list-status">
+        <span id="items-left"></span>
+      </div>
+      <div class="filter" aria-label="filter todos">
+        <button type="button" id="all" class="on all">All</button>
+        <button type="button" id="active" class="active">Active</button>
+        <button type="button" id="completed" class="completed">Completed</button>
+      </div>
+      <div class="right-corner">
+        <button type="button" id="clear-all" class="clear-all" aria-label="button clear all todos">Clear All</button>
+      </div>
+    </footer>
+
+  </main>
+  
+</body>
+
+</html>
