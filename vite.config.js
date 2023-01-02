@@ -6,7 +6,7 @@ då ska "base" här nedan vara "/fed22d-js-grundkurs-jenni-wumpus/"
  */
 
 export default defineConfig({
-  base: '/fed22d-js-grundkurs-2-todo-tittieth/', // TODO - ändra till ditt repo-namn
+  base: '/tittieth/todo-app/', // TODO - ändra till ditt repo-namn
   define: {
     'process.env': {},
   },
